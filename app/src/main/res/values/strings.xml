@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TauPsi</string>
+    <string name="test_string">Test</string>
+    <string name="brother_name">%1$s</string>
+    <string name="about_string">About:</string>
+    <string name="crossed_intro">Cross Semester: %1$s</string>
+    <string name="major_intro">Major: %1$s</string>
+    <string name="fun_fact_intro">Fun Fact: %1$s</string>
+    <string name="rush_header">What is Rush?</string>
+    <string name="requirements_header">Requirements</string>
+    <string name="events_header">Events</string>
+    <string name="rush_description">Rush is a series of events hosted by the fraternity that allow prospective and current members to get to know each other. At the end of rush, the brothers will offer a bid to the men best
+        fitted for membership. A bid is an invitation to start the pledge process.
+    </string>
+
+
+
+    <string name="requirements_description">In order to be considered for a bid, a prospective member must have an overall GPA of 2.5, attend three rush events, and complete a interview. The three rush events must be an informational
+        , a social, and a community service. Even though three is the requirement, attending more will achieve a higher chance of getting a bid. The events this semester are listed below.
+
+    </string>
+
+
+</resources>
