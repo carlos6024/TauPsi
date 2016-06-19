@@ -1,4 +1,4 @@
-package com.asutaupsi.taupsi.views;
+package com.asutaupsi.taupsi.views.oldViews;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,9 +55,9 @@ public class InformationVideoAdapterList extends ArrayAdapter<InformationVideo> 
 
 
         public InformationalVideoHolder(View view) {
-            videoTitle = (TextView) view.findViewById(R.id.list_informational_video_videoTitle);
+            videoTitle = (TextView) view.findViewById(R.id.list_rush_namefff);
             videoAbout = (TextView) view.findViewById(R.id.list_informational_video_videoDesctiption);
-            videoImage = (ImageView) view.findViewById(R.id.list_informational_video_videoImage);
+            videoImage = (ImageView) view.findViewById(R.id.list_info_event_name);
         }
     }
 }

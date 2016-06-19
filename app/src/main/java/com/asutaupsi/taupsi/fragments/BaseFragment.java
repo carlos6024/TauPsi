@@ -20,8 +20,8 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    public void onDestroy() {
+        super.onDestroy();
         bus.unregister(this);
     }
 }

@@ -9,6 +9,7 @@ import com.squareup.otto.Bus;
 public class BaseActivity extends AppCompatActivity {
     protected TauPsiApplication application;
     protected Bus bus;
+    private Boolean isRegisteredwithBus;
 
 
     @Override
@@ -17,11 +18,20 @@ public class BaseActivity extends AppCompatActivity {
         application = (TauPsiApplication) getApplication();
         bus = application.getBus();
         bus.register(this);
+        isRegisteredwithBus = true;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        bus.unregister(this);
+        if(isRegisteredwithBus) {
+            bus.unregister(this);
+            isRegisteredwithBus = false;
+        }
     }
+
+
+
+
+
 }

@@ -69,6 +69,7 @@ public class MeetABrotherFragment extends BaseFragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_meet_a_brother, container, false);
         ButterKnife.bind(this, view);
+
         brothers = new ArrayList<>();
         bus.post(new ServiceCalls.SearchBrothersRequest("Hello"));
 
@@ -135,6 +136,9 @@ public class MeetABrotherFragment extends BaseFragment {
         Log.i(MeetABrotherFragment.class.getSimpleName(),Integer.toString(brothers.size()));
     }
 
+
+
+
     public void UpdateBrotherUI(int index){
         brother = brothers.get(index);
         Log.i(LOG_TAG, "Brother Updated to " + brother.getBrotherName());
@@ -164,24 +168,3 @@ public class MeetABrotherFragment extends BaseFragment {
 }
 
 
-
-        /*scheduler.invokeEveryMilliseconds(new Runnable() {
-            @Override
-            public void run() {
-
-                index ++;
-                brother = brothers.get(index);
-                Log.i(LOG_TAG, "Brother Updated to " + brother.getBrotherName());
-                Picasso.with(getActivity().getApplicationContext())
-                        .load(brother.getBrotherPicture()).
-                        into(brotherImage);
-                brotherName.setText(brother.getBrotherName());
-                brotherCrossSemester.setText(brother.getBrotherCrossSemester());
-
-                if(index == 99){
-                    index = -1 ;
-                }
-            }
-        }, 3000,true);
-
-        */

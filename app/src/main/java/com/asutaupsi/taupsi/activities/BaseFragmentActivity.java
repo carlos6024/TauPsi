@@ -37,8 +37,6 @@ public abstract class BaseFragmentActivity extends AppCompatActivity {
                     .commit();
         }
 
-
-
     }
 
     @Override

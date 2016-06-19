@@ -24,7 +24,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:scaleType="fitXY"
-            android:id="@+id/list_informational_video_videoImage"
+            android:id="@+id/list_info_event_name"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"/>
 
@@ -32,14 +32,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_toRightOf="@+id/list_informational_video_videoImage"
-            android:layout_toEndOf="@+id/list_informational_video_videoImage">
+            android:layout_toRightOf="@+id/list_info_event_name"
+            android:layout_toEndOf="@+id/list_info_event_name">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/test_string"
-                android:id="@+id/list_informational_video_videoTitle"
+                android:id="@+id/list_rush_namefff"
                 />
 
 

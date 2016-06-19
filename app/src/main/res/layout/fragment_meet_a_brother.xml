@@ -93,6 +93,7 @@
             android:textStyle="italic"
             android:id="@+id/fragment_meet_a_brother_about" />
 
+
     </LinearLayout>
 
     <ImageButton

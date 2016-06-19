@@ -13,7 +13,7 @@ public class InMemoryRushService extends BaseInMemeoryService {
 
 
     @Subscribe
-    public void findRushEvents(ServiceCalls.SearchCommunityVideosRequest request){
+    public void findRushEvents(ServiceCalls.SearchRushEventsRequest request){
         ServiceCalls.SearchRushEventsResponse response = new ServiceCalls.SearchRushEventsResponse();
         response.rushEvents = new ArrayList<>();
 

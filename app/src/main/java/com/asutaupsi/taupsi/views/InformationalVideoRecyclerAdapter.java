@@ -11,15 +11,14 @@ import com.asutaupsi.taupsi.services.entities.InformationVideo;
 
 import java.util.ArrayList;
 
-public class InformationalVideoAdapter extends RecyclerView.Adapter<InformationalVideoViewHolder> implements View.OnClickListener {
+public class InformationalVideoRecyclerAdapter extends RecyclerView.Adapter<InformationalVideoViewHolder> implements View.OnClickListener {
 
     private final LayoutInflater layoutInflater;
     private final BaseActivity activity;
-    private final OnInformationalVideoClickListener listener;
+    private final  OnInformationalVideoClickListener listener;
     private final ArrayList<InformationVideo> videos;
 
-
-    public InformationalVideoAdapter(BaseActivity activity, OnInformationalVideoClickListener listener) {
+    public InformationalVideoRecyclerAdapter(BaseActivity activity, OnInformationalVideoClickListener listener) {
         this.activity = activity;
         this.listener = listener;
         videos = new ArrayList<>();
@@ -32,33 +31,36 @@ public class InformationalVideoAdapter extends RecyclerView.Adapter<Informationa
 
     @Override
     public InformationalVideoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.list_information_videos,parent);
+        View view = layoutInflater.inflate(R.layout.list_information_videos, parent, false);
         view.setOnClickListener(this);
-        InformationalVideoViewHolder viewHolder = new InformationalVideoViewHolder(view,activity);
+        InformationalVideoViewHolder viewHolder = new InformationalVideoViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(InformationalVideoViewHolder holder, int position) {
-        holder.populate(videos.get(position));
+        InformationVideo informationVideo = videos.get(position);
+        holder.populate(activity, informationVideo);
     }
+
+
 
     @Override
     public int getItemCount() {
         return videos.size();
     }
 
+
+
     @Override
     public void onClick(View view) {
         if(view.getTag() instanceof InformationVideo){
-            InformationVideo informationVideo = (InformationVideo) view.getTag();
-            listener.onInformationalVideoClickListener(informationVideo);
+            InformationVideo video = (InformationVideo) view.getTag();
+            listener.onInformationClicked(video);
         }
-
     }
 
     public interface OnInformationalVideoClickListener{
-        void onInformationalVideoClickListener(InformationVideo informationVideo);
+        void onInformationClicked(InformationVideo video);
     }
-
 }

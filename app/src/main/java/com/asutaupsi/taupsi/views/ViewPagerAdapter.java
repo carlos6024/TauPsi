@@ -3,21 +3,13 @@ package com.asutaupsi.taupsi.views;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.view.ViewGroup;
 
-import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.fragments.AboutFragment;
 import com.asutaupsi.taupsi.fragments.MeetABrotherFragment;
 import com.asutaupsi.taupsi.fragments.RushFragment;
 
 
-
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-
-
-    private final AboutFragment aboutFragment = AboutFragment.newInstance();
-    private final MeetABrotherFragment meetABrotherFragment = MeetABrotherFragment.newInstance();
-    private final RushFragment rushFragment = RushFragment.newInstance();
 
 
     public ViewPagerAdapter(FragmentManager fragmentManager) {
@@ -25,21 +17,24 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     }
 
 
-
-
-
-
     @Override
     public Fragment getItem(int position) {
-        if(position == 0){
-            return aboutFragment;
-        } else if(position == 1){
-            return meetABrotherFragment;
-        } else{
-            return rushFragment;
+        Fragment returnFragment;
+        switch (position) {
+            case 0:
+                returnFragment = AboutFragment.newInstance();
+                break;
+            case 1:
+                returnFragment = MeetABrotherFragment.newInstance();
+                break;
+            case 2:
+                returnFragment = RushFragment.newInstance();
+                break;
+            default:
+                return null;
         }
+        return returnFragment;
     }
-
 
     @Override
     public int getCount() {
@@ -56,7 +51,5 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             return "Rush";
         }
     }
-
-
 
 }

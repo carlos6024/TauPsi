@@ -1,4 +1,4 @@
-package com.asutaupsi.taupsi.views;
+package com.asutaupsi.taupsi.views.oldViews;
 
 import android.content.Context;
 import android.view.LayoutInflater;
