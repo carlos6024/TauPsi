@@ -49,10 +49,34 @@ public class ServiceCalls {
     }
 
 
-    public static class SearchCommuntiyVideosResponse {
+    public static class SearchCommunityVideosResponse {
         public List<InformationVideo> communityVideos;
     }
 
+    public static class SearchAcademicsVideosRequest{
+        public boolean Search;
 
+        public SearchAcademicsVideosRequest(boolean search) {
+            Search = search;
+        }
+    }
+
+    public static class SearchAcademicsVideosResponse{
+        public List<InformationVideo> academicVideos;
+    }
+
+
+    public static class SearchSocialVideosRequest {
+        public boolean Search;
+
+        public SearchSocialVideosRequest(boolean search) {
+            Search = search;
+        }
+
+    }
+
+    public static class SearchSocialVideosReponse {
+            public List<InformationVideo> socialVideos;
+    }
 
 }

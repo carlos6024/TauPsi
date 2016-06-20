@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/test_string"
-                android:id="@+id/list_rush_namefff"
+                android:id="@+id/list_informational_video_title_name"
                 />
 
 
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/test_string"
                 android:layout_marginTop="5dp"
-                android:id="@+id/list_informational_video_videoDesctiption"
+                android:id="@+id/list_informational_video_videoDescription"
                 />
 
 

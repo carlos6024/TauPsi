@@ -10,16 +10,15 @@ import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.services.entities.InformationVideo;
 import com.squareup.picasso.Picasso;
 
-public class InformationalVideoViewHolder extends RecyclerView.ViewHolder {
-
+public class CommunityServiceViewHolder extends RecyclerView.ViewHolder {
     private final TextView videoTitle;
     private final TextView videoAbout;
     private final ImageView videoImageview;
 
-    public InformationalVideoViewHolder(View view) {
+    public CommunityServiceViewHolder(View view) {
         super(view);
-        videoTitle = (TextView) view.findViewById(R.id.list_rush_namefff);
-        videoAbout = (TextView) view.findViewById(R.id.list_informational_video_videoDesctiption);
+        videoTitle = (TextView) view.findViewById(R.id.list_informational_video_title_name);
+        videoAbout = (TextView) view.findViewById(R.id.list_informational_video_videoDescription);
         videoImageview = (ImageView) view.findViewById(R.id.list_info_event_name);
     }
 

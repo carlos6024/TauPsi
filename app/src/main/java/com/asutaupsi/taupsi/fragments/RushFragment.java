@@ -12,7 +12,7 @@ import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.asutaupsi.taupsi.services.entities.RushEvent;
-import com.asutaupsi.taupsi.views.oldViews.RushEventAdapterList;
+import com.asutaupsi.taupsi.views.RushEventAdapterList;
 import com.squareup.otto.Subscribe;
 
 
@@ -32,7 +32,7 @@ public class RushFragment extends BaseFragment implements AdapterView.OnItemClic
         View view = inflater.inflate(R.layout.fragment_rush, container, false);
         adapterList = new RushEventAdapterList((BaseActivity) getActivity());
         listView = (ListView) view.findViewById(R.id.fragment__rush_list_view);
-        View header = inflater.inflate(R.layout.fragment_rush_header,null);
+        View header = inflater.inflate(R.layout.header_fragment_rush_,null);
         listView.addHeaderView(header, null, false);
         setUpAdapter();
         listView.setOnItemClickListener(this);

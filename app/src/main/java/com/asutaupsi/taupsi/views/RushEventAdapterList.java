@@ -1,6 +1,5 @@
-package com.asutaupsi.taupsi.views.oldViews;
+package com.asutaupsi.taupsi.views;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +9,6 @@ import android.widget.TextView;
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
 import com.asutaupsi.taupsi.services.entities.RushEvent;
-
-import java.util.ArrayList;
 
 public class RushEventAdapterList extends ArrayAdapter<RushEvent>{
     private LayoutInflater inflater;
