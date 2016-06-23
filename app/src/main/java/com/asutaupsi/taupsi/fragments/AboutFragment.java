@@ -1,5 +1,6 @@
 package com.asutaupsi.taupsi.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +11,10 @@ import android.view.ViewGroup;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
+import com.asutaupsi.taupsi.activities.PhotoPagerActivity;
+import com.asutaupsi.taupsi.activities.YoutubePlayerActivity;
 import com.asutaupsi.taupsi.services.ServiceCalls;
-import com.asutaupsi.taupsi.services.entities.InformationVideo;
+import com.asutaupsi.taupsi.services.entities.InformationCard;
 import com.asutaupsi.taupsi.views.AboutUsAdapter;
 import com.squareup.otto.Subscribe;
 
@@ -21,9 +24,12 @@ public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutU
     private final String LOG_TAG = AboutFragment.class.getSimpleName();
 
     private AboutUsAdapter adapter;
-    private ArrayList<InformationVideo> communityVideos;
-    private ArrayList<InformationVideo> socialVideos;
-    private ArrayList<InformationVideo> academicsVideos;
+    private ArrayList<InformationCard> communityVideos;
+    private ArrayList<InformationCard> socialVideos;
+    private ArrayList<InformationCard> academicsVideos;
+
+    private final String YOUTUBE_API_KEY = "AIzaSyDJFdK9uptaFcEOhq5Ho2NLW2MfMQbEtkg";
+    public static final String EXTRA_VIDEO_INFO = "EXTRA_VIDEO_INFO";
 
     public static AboutFragment newInstance(){
             return new AboutFragment();
@@ -75,8 +81,18 @@ public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutU
 
 
     @Override
-    public void onInformationVideoClicked(InformationVideo video) {
-        Log.i(LOG_TAG,video.getVideoYoutubeEnding());
-    }
+    public void onInformationVideoClicked(InformationCard video) {
 
+        if(!video.getIsVideo()){
+            Intent intent = new Intent(getActivity(),PhotoPagerActivity.class);
+            startActivity(intent);
+        }
+
+        else {
+            //startActivity(YouTubeStandalonePlayer.createVideoIntent(getActivity(), YOUTUBE_API_KEY, video.getVideoYoutubeEnding(), 0, true, true));
+            Intent intent = new Intent(getActivity(), YoutubePlayerActivity.class);
+            intent.putExtra(EXTRA_VIDEO_INFO, video);
+            startActivity(intent);
+        }
+    }
 }

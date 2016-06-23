@@ -23,4 +23,5 @@ public class TauPsiApplication extends Application {
     public Bus getBus() {
         return bus;
     }
+
 }

@@ -19,6 +19,8 @@ public class MainActivity extends BaseActivity  {
     @Bind(R.id.activity_main_viewPager)
     ViewPager viewPager;
 
+
+
     @Bind(R.id.activity_tab_layout)
     TabLayout tabLayout;
 

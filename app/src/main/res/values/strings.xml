@@ -10,15 +10,47 @@
     <string name="requirements_header">Requirements</string>
     <string name="events_header">Events</string>
     <string name="about_us_header">Tau Psi Omega</string>
-    <string name="about_tau_psi">Tau Psi Omega Fraternity Incorporated was founded September 14, 1996 by 12 founding fathers. </string>
-    <string name="rush_description">Rush is a series of events hosted by the fraternity that allow prospective and current members to get to know each other. At the end of rush, the brothers will offer a bid to the men best
-        fitted for membership. A bid is an invitation to start the pledge process.
+    <string name="about_tau_psi">
+
+
+        This is not your typical fraternity. We don’t have trust funds. We don’t charge an exorbitant amount of money to hold membership every year.
+        Tau Psi Omega is unique in and of itself. We are a multi-cultural and community service based fraternity.
+        We take pride in the diverse make-up of our fraternity in terms of nationality, ethnicity, race, religion.
+        As a community service based fraternity we hold providing quality and meaningful community service paramount in our fraternity;
+        we are to community service what Phil Jackson is to the Triangle offense (we are big proponents of it, we are the best at it and we
+        truly unwaveringly believe in doing it). Oh yeah, don’t worry, believe me when I say we do know how to have fun too.
+        We are in college after all and lets be real; in addition to preparing ourselves for future careers
+        we also want to have the times of our lives.
+        The best thing about Tau Psi Omega is that we do all of these things together.
+        The brotherhood is real, we aren’t just some 4 years and then we do our own thing.
+        This brotherhood is for life.  We have so many personalities as well and there is a niche for every single type of person.
+        Whether you are a bookworm, computer nerd, a gym rat, an intramural sports all-star or just a guy still trying to
+        really find yourself we got room for you and spot for you if you are willing to put in the work to earn these letters.
+        Tau. Psi. Omega.
+
+
+
+
     </string>
 
 
 
-    <string name="requirements_description">In order to be considered for a bid, a prospective member must have an overall GPA of 2.5, attend three rush events, and complete a interview. The three rush events must be an informational
-        , a social, and a community service. Even though three is the requirement, attending more will achieve a higher chance of getting a bid. The events this semester are listed below.
+    <string name="rush_description">
+
+        Rush is a series of events set up by the fraternity to get to know you.
+        We don’t want to just hand out bids to anyone. Rush events are so that you can hang out, talk to and really get to know the members of a fraternity and figure out if you can connect on a
+        more meaningful level with them or you find out maybe it just isn’t for you. The same goes for the fraternity, we want to know more about you and see if we see in you the qualities of a
+        Tau Psi Omega man. At the end of Rush brothers will give an invitation (known as a bid) to a group of select rushees, to pledge our fraternity.
+
+    </string>
+
+
+
+    <string name="requirements_description">
+        A prospective member must have attended at least three rush events, complete an interview and have a cumulative GPA of 2.5
+        to officially receive a bid to pledge Tau Psi Omega Fraternity, Inc.
+        The three rush events must be an informational, a social event and a community service event.
+        It is best to attend as many rush events as possible to get to know the current members of the fraternity and have them get to know you.
 
     </string>
 

@@ -1,7 +1,7 @@
 package com.asutaupsi.taupsi.services;
 
 import com.asutaupsi.taupsi.services.entities.Brother;
-import com.asutaupsi.taupsi.services.entities.InformationVideo;
+import com.asutaupsi.taupsi.services.entities.InformationCard;
 import com.asutaupsi.taupsi.services.entities.RushEvent;
 
 import java.util.List;
@@ -50,7 +50,7 @@ public class ServiceCalls {
 
 
     public static class SearchCommunityVideosResponse {
-        public List<InformationVideo> communityVideos;
+        public List<InformationCard> communityVideos;
     }
 
     public static class SearchAcademicsVideosRequest{
@@ -62,7 +62,7 @@ public class ServiceCalls {
     }
 
     public static class SearchAcademicsVideosResponse{
-        public List<InformationVideo> academicVideos;
+        public List<InformationCard> academicVideos;
     }
 
 
@@ -76,7 +76,7 @@ public class ServiceCalls {
     }
 
     public static class SearchSocialVideosReponse {
-            public List<InformationVideo> socialVideos;
+            public List<InformationCard> socialVideos;
     }
 
 }

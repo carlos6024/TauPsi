@@ -1,7 +1,6 @@
 package com.asutaupsi.taupsi.views;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,7 @@ import android.view.ViewGroup;
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
 import com.asutaupsi.taupsi.fragments.AboutFragment;
-import com.asutaupsi.taupsi.services.entities.InformationVideo;
+import com.asutaupsi.taupsi.services.entities.InformationCard;
 
 import java.util.ArrayList;
 
@@ -22,9 +21,9 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
     private static final int VIEW_TYPE_VIDEO_HEADER = 5;
 
 
-    private ArrayList<InformationVideo> socialVideos;
-    private ArrayList<InformationVideo> academicVideos;
-    private ArrayList<InformationVideo> communityVideos;
+    private ArrayList<InformationCard> socialVideos;
+    private ArrayList<InformationCard> academicVideos;
+    private ArrayList<InformationCard> communityVideos;
 
     private BaseActivity activity;
     private LayoutInflater inflater;
@@ -40,15 +39,15 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
         communityVideos = new ArrayList<>();
     }
 
-    public ArrayList<InformationVideo> getCommunityVideos() {
+    public ArrayList<InformationCard> getCommunityVideos() {
         return communityVideos;
     }
 
-    public ArrayList<InformationVideo> getAcademicVideos() {
+    public ArrayList<InformationCard> getAcademicVideos() {
         return academicVideos;
     }
 
-    public ArrayList<InformationVideo> getSocialVideos() {
+    public ArrayList<InformationCard> getSocialVideos() {
         return socialVideos;
     }
 
@@ -116,7 +115,7 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
             serviceHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    InformationVideo serviceVideo = (InformationVideo) serviceHolder.itemView.getTag();
+                    InformationCard serviceVideo = (InformationCard) serviceHolder.itemView.getTag();
                     listener.onInformationVideoClicked(serviceVideo);
                 }
             });
@@ -128,7 +127,7 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
             academicHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    InformationVideo academicVideo = (InformationVideo) academicHolder.itemView.getTag();
+                    InformationCard academicVideo = (InformationCard) academicHolder.itemView.getTag();
                     listener.onInformationVideoClicked(academicVideo);
                 }
             });
@@ -141,7 +140,7 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
             socialHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    InformationVideo socialVideo = (InformationVideo) socialHolder.itemView.getTag();
+                    InformationCard socialVideo = (InformationCard) socialHolder.itemView.getTag();
                     listener.onInformationVideoClicked(socialVideo);
                 }
             });
@@ -159,35 +158,40 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+
         int servicePosition = 1;
         int academicPosition = servicePosition + academicVideos.size() +1 ;
         int socialPosition = academicPosition + socialVideos.size()+1;
-        int length = socialVideos.size()+academicVideos.size()+ communityVideos.size() +3+2;
-        int oldsize=0;
+
+
         if(holder instanceof CommunityServiceViewHolder){
             position --;
             position --;
-            Log.i(LOG_TAG,Integer.toString(position) + " New holder position");
-            InformationVideo serviceVideo = communityVideos.get(position);
+            InformationCard serviceVideo = communityVideos.get(position);
             holder.itemView.setTag(serviceVideo);
             ((CommunityServiceViewHolder) holder).populate(activity,serviceVideo);
 
         } else if(holder instanceof AcademicServiceViewHolder){
-            Log.i(LOG_TAG,Integer.toString(oldsize) +" This is the old size");
             position = position -2 -academicVideos.size()-1;
-            Log.i(LOG_TAG,Integer.toString(position) + " New holder position");
             //6
-            InformationVideo academicVideo = academicVideos.get(position);
+
+
+
+            InformationCard academicVideo = academicVideos.get(position);
             holder.itemView.setTag(academicVideo);
             ((AcademicServiceViewHolder) holder).populate(activity,academicVideo);
         } else if(holder instanceof SocialServiceViewHolder){
             //The trick here is to subtract the old position subtracting minus the list size and 1. Not sure how to implement still
-
-            position = position -4 - socialVideos.size()-1;
-
-            Log.i(LOG_TAG,Integer.toString(position) + " New holder position");
-            //10
-            InformationVideo socialVideo = socialVideos.get(position);
+            //Just add -- Until the adapter works lol
+            //position = position -5 - socialVideos.size();
+            position --;
+            position --;
+            position --;
+            position --;
+            position --;
+            position --;
+            InformationCard socialVideo = socialVideos.get(position);
             holder.itemView.setTag(socialVideo);
             ((SocialServiceViewHolder) holder).populate(activity,socialVideo);
         } else if (holder instanceof AboutUsAdapterMainHeader){
@@ -198,21 +202,20 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
             if(position == servicePosition)
             {
                 viewHolder.populate("Service");
-                Log.i(LOG_TAG, "This Code worked at position " + Integer.toString(position));
             }
 
 
             if(position == academicPosition)
             {
                 viewHolder.populate("Academics");
-                Log.i(LOG_TAG, "This Code worked at position " + Integer.toString(position));
             }
 
-            if(position == socialPosition)
+
+            if(position == socialPosition-1)
             {
                 viewHolder.populate("Social");
-                Log.i(LOG_TAG, "This Code worked at position " + Integer.toString(position));
             }
+
 
         } else{
             throw new IllegalArgumentException("Cannot populate holder of type " + holder.getClass().getName());
@@ -238,6 +241,6 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
 
 
     public interface AboutUsListener{
-        void onInformationVideoClicked(InformationVideo video);
+        void onInformationVideoClicked(InformationCard video);
     }
 }
