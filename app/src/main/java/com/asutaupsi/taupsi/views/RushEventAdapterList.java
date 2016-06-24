@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
-import com.asutaupsi.taupsi.services.entities.RushEvent;
+import com.asutaupsi.taupsi.entities.RushEvent;
 
 public class RushEventAdapterList extends ArrayAdapter<RushEvent>{
     private LayoutInflater inflater;

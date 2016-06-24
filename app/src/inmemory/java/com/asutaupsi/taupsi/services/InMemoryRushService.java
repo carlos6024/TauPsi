@@ -1,7 +1,7 @@
 package com.asutaupsi.taupsi.services;
 
 import com.asutaupsi.taupsi.infrastructure.TauPsiApplication;
-import com.asutaupsi.taupsi.services.entities.RushEvent;
+import com.asutaupsi.taupsi.entities.RushEvent;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;

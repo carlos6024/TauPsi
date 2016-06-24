@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
-import com.asutaupsi.taupsi.activities.PhotoPagerActivity;
+import com.asutaupsi.taupsi.activities.EventPhotoPagerActivity;
 import com.asutaupsi.taupsi.activities.YoutubePlayerActivity;
 import com.asutaupsi.taupsi.services.ServiceCalls;
-import com.asutaupsi.taupsi.services.entities.InformationCard;
+import com.asutaupsi.taupsi.entities.InformationCard;
 import com.asutaupsi.taupsi.views.AboutUsAdapter;
 import com.squareup.otto.Subscribe;
 
@@ -50,32 +50,32 @@ public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutU
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-            bus.post(new ServiceCalls.SearchCommunityVideosRequest(true));
-            bus.post(new ServiceCalls.SearchAcademicsVideosRequest(true));
-            bus.post(new ServiceCalls.SearchSocialVideosRequest(true));
+            bus.post(new ServiceCalls.SearchCommunityInformationRequest(true));
+            bus.post(new ServiceCalls.SearchAcademicsInformationRequest(true));
+            bus.post(new ServiceCalls.SearchSocialInformationRequest(true));
             return view;
         }
 
 
 
     @Subscribe
-    public void getCommunityVideos(final ServiceCalls.SearchCommunityVideosResponse response){
+    public void getCommunityVideos(final ServiceCalls.SearchCommunityInformationResponse response){
             communityVideos.clear();
-            communityVideos.addAll(response.communityVideos);
+            communityVideos.addAll(response.communityInformationList);
             Log.i(LOG_TAG, Integer.toString(communityVideos.size()) + " community Videos Added");
         }
 
     @Subscribe
-    public void getSocialVideos(final ServiceCalls.SearchSocialVideosReponse respose){
+    public void getSocialVideos(final ServiceCalls.SearchSocialInformationResponse respose){
         socialVideos.clear();
         socialVideos.addAll(respose.socialVideos);
         Log.i(LOG_TAG,Integer.toString(socialVideos.size()) + " social Videos Added");
     }
 
     @Subscribe
-    public void getAcademicsVideos(final  ServiceCalls.SearchAcademicsVideosResponse response){
+    public void getAcademicsVideos(final ServiceCalls.SearchAcademicsInformationResponse response){
         academicsVideos.clear();
-        academicsVideos.addAll(response.academicVideos);
+        academicsVideos.addAll(response.academicInformationList);
         Log.i(LOG_TAG,Integer.toString(academicsVideos.size()) + " academics Videos Added");
     }
 
@@ -84,7 +84,7 @@ public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutU
     public void onInformationVideoClicked(InformationCard video) {
 
         if(!video.getIsVideo()){
-            Intent intent = new Intent(getActivity(),PhotoPagerActivity.class);
+            Intent intent = new Intent(getActivity(),EventPhotoPagerActivity.class);
             startActivity(intent);
         }
 

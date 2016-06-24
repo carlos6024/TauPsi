@@ -26,7 +26,7 @@
         <activity android:name=".activities.YoutubePlayerActivity"
             android:theme="@style/AlertDialogCustom"/>
 
-        <activity android:name=".activities.PhotoPagerActivity"
+        <activity android:name=".activities.EventPhotoPagerActivity"
             android:theme="@style/AlertDialogCustomAppTheme"/>
 
     </application>

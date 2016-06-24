@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.services.ServiceCalls;
-import com.asutaupsi.taupsi.services.entities.Brother;
+import com.asutaupsi.taupsi.entities.Brother;
 import com.squareup.otto.Subscribe;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;

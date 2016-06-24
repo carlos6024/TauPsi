@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
 import com.asutaupsi.taupsi.fragments.AboutFragment;
-import com.asutaupsi.taupsi.services.entities.InformationCard;
+import com.asutaupsi.taupsi.entities.InformationCard;
 
 import java.util.ArrayList;
 

@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.asutaupsi.taupsi.R;
-import com.asutaupsi.taupsi.services.entities.InformationCard;
+import com.asutaupsi.taupsi.entities.InformationCard;
 import com.squareup.picasso.Picasso;
 
 public class SocialServiceViewHolder extends RecyclerView.ViewHolder {

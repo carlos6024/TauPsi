@@ -1,4 +1,4 @@
-package com.asutaupsi.taupsi.services.entities;
+package com.asutaupsi.taupsi.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;

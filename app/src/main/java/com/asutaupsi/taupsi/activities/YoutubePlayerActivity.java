@@ -6,7 +6,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.asutaupsi.taupsi.R;
-import com.asutaupsi.taupsi.services.entities.InformationCard;
+import com.asutaupsi.taupsi.entities.InformationCard;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;

@@ -1,8 +1,9 @@
 package com.asutaupsi.taupsi.services;
 
-import com.asutaupsi.taupsi.services.entities.Brother;
-import com.asutaupsi.taupsi.services.entities.InformationCard;
-import com.asutaupsi.taupsi.services.entities.RushEvent;
+import com.asutaupsi.taupsi.entities.Brother;
+import com.asutaupsi.taupsi.entities.EventPhoto;
+import com.asutaupsi.taupsi.entities.InformationCard;
+import com.asutaupsi.taupsi.entities.RushEvent;
 
 import java.util.List;
 
@@ -11,6 +12,8 @@ public class ServiceCalls {
     private ServiceCalls(){
     }
 
+
+    /////////////////////////////Brothers Service Calls//////////////////////////////////////
     public static class SearchBrothersRequest{
         public String searchType;
 
@@ -26,6 +29,9 @@ public class ServiceCalls {
 
 
 
+
+
+    /////////////////////////////Rush Events Service Calls//////////////////////////////////////
     public static class SearchRushEventsRequest{
         public String searchType;
 
@@ -40,43 +46,65 @@ public class ServiceCalls {
 
 
 
-    public static class SearchCommunityVideosRequest{
+
+
+
+    /////////////////////////////Information Cards Service Calls//////////////////////////////////////
+    public static class SearchCommunityInformationRequest {
         public boolean Search;
 
-        public SearchCommunityVideosRequest(boolean search) {
+        public SearchCommunityInformationRequest(boolean search) {
             Search = search;
         }
     }
 
 
-    public static class SearchCommunityVideosResponse {
-        public List<InformationCard> communityVideos;
+    public static class SearchCommunityInformationResponse {
+        public List<InformationCard> communityInformationList;
     }
 
-    public static class SearchAcademicsVideosRequest{
+
+
+
+    public static class SearchAcademicsInformationRequest {
         public boolean Search;
 
-        public SearchAcademicsVideosRequest(boolean search) {
+        public SearchAcademicsInformationRequest(boolean search) {
             Search = search;
         }
     }
 
-    public static class SearchAcademicsVideosResponse{
-        public List<InformationCard> academicVideos;
+    public static class SearchAcademicsInformationResponse {
+        public List<InformationCard> academicInformationList;
     }
 
 
-    public static class SearchSocialVideosRequest {
+    public static class SearchSocialInformationRequest {
         public boolean Search;
 
-        public SearchSocialVideosRequest(boolean search) {
+        public SearchSocialInformationRequest(boolean search) {
             Search = search;
         }
 
     }
 
-    public static class SearchSocialVideosReponse {
+    public static class SearchSocialInformationResponse {
             public List<InformationCard> socialVideos;
     }
 
+
+
+
+    /////////////////////////////Photos Service Calls//////////////////////////////////////
+    public static class SearchFormalPhotosRequest{
+        public String SearchParameter;
+        public SearchFormalPhotosRequest(String searchParameter) {
+            SearchParameter = searchParameter;
+        }
+    }
+
+
+    public static class SearchFormalPhotosResponse{
+        public List<EventPhoto> FormalEventPhotos;
+    }
 }

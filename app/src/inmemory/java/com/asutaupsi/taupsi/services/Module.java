@@ -12,7 +12,8 @@ public class Module {
         Log.i(LOG_TAG,"IN MEMORY REGISTER METHOD CALLED");
         new InMemoryBrotherService(application);
         new InMemoryRushService(application);
-        new InMemoryVideoServices(application);
+        new InMemoryInformationCardServices(application);
+        new InMemoryPhotoService(application);
     }
 
 }

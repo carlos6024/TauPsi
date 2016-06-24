@@ -11,7 +11,7 @@ import android.widget.ListView;
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
 import com.asutaupsi.taupsi.services.ServiceCalls;
-import com.asutaupsi.taupsi.services.entities.RushEvent;
+import com.asutaupsi.taupsi.entities.RushEvent;
 import com.asutaupsi.taupsi.views.RushEventAdapterList;
 import com.squareup.otto.Subscribe;
 
