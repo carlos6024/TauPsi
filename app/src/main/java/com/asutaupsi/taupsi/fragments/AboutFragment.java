@@ -28,7 +28,6 @@ public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutU
     private ArrayList<InformationCard> socialVideos;
     private ArrayList<InformationCard> academicsVideos;
 
-    private final String YOUTUBE_API_KEY = "AIzaSyDJFdK9uptaFcEOhq5Ho2NLW2MfMQbEtkg";
     public static final String EXTRA_VIDEO_INFO = "EXTRA_VIDEO_INFO";
 
     public static AboutFragment newInstance(){
