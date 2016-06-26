@@ -59,6 +59,10 @@ public class InMemoryBrotherService extends BaseInMemeoryService {
                 "I am left handed!"
         ));
 
+        response.Brothers.add(new Brother(6,"Sergio Jimenez","I felt that the people in the organization reflected the same beliefs that I have and I felt that you guys were what I am able to call a family away from home",
+                "https://scontent.fphx1-2.fna.fbcdn.net/v/t1.0-9/13087543_987308654689880_7747649146973341694_n.jpg?oh=3b354753b73be33c2b0169c8681731f2&oe=580F935D",
+                "Applied Computing","Fall 2014","I love shoes."));
+
 
 
         /*for(int i = 0 ; i<5;i++){

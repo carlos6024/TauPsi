@@ -23,7 +23,7 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity
     private YouTubePlayerFragment youTubePlayerFragment;
     public static final String EXTRA_VIDEO_INFO = "EXTRA_VIDEO_INFO";
     private final int RECOVERY_REQUEST =1;
-    private final String YOUTUBE_API_KEY = "AIzaSyDJFdK9uptaFcEOhq5Ho2NLW2MfMQbEtkg";
+    private final String YOUTUBE_API_KEY = "";
     private final String LOG_TAG = YoutubePlayerActivity.class.getSimpleName();
     private MyPlayerStateChangeListener myPlayerStateChangeListener;
 

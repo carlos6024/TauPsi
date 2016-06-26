@@ -23,7 +23,6 @@ import java.util.ArrayList;
 public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutUsListener {
     private final String LOG_TAG = AboutFragment.class.getSimpleName();
 
-    private AboutUsAdapter adapter;
     private ArrayList<InformationCard> communityVideos;
     private ArrayList<InformationCard> socialVideos;
     private ArrayList<InformationCard> academicsVideos;
@@ -39,7 +38,7 @@ public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutU
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_about,container,false);
-            adapter = new AboutUsAdapter((BaseActivity) getActivity(),this);
+            AboutUsAdapter adapter = new AboutUsAdapter((BaseActivity) getActivity(),this);
             communityVideos = adapter.getCommunityVideos();
             academicsVideos = adapter.getAcademicVideos();
             socialVideos = adapter.getSocialVideos();
