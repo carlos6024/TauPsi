@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
 
+    <color name="silver_primary">#757575</color>
+    <color name="silver_secondary">#9e9e9e</color>
+    <color name="silver_accent">#757575</color>
+    <color name="button_color">#0D47A1</color>
+    <color name="white">#fff</color>
 
-    <color name="colorControlHighlight">@color/fifty_percent_transparency_grey_400</color>
-    <color name="fifty_percent_transparency_grey_400">#80bdbdbd</color>
-    <color name="grey_500">#9e9e9e</color>
-    <color name="grey_700">#616161</color>
-
-
-    <color name="red">#00838F</color>
-    <color name="dark_red">#006064</color>
-    <color name="gray">#607D8B</color>
-    <color name="soothing_blue">#90A4AE</color>
-    <color name="dark_blue">#005A8A</color>
 
 </resources>

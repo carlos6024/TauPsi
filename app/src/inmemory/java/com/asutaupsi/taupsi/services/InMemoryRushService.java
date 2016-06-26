@@ -17,7 +17,6 @@ public class InMemoryRushService extends BaseInMemeoryService {
         ServiceCalls.SearchRushEventsResponse response = new ServiceCalls.SearchRushEventsResponse();
         response.rushEvents = new ArrayList<>();
 
-
         for(int i = 0 ; i<5 ;i++){
             String stringId = Integer.toString(i);
 

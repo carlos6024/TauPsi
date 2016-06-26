@@ -7,7 +7,7 @@ public class Brother implements Parcelable {
 
     private int BrotherId;
     private String BrotherName;
-    private String BrotherAbout;
+    private String BrotherWhyJoin;
     private String BrotherPicture;
     private String BrotherMajor;
     private String BrotherCrossSemester;
@@ -17,7 +17,7 @@ public class Brother implements Parcelable {
     public Brother(int brotherId, String brotherName, String brotherAbout, String brotherPicture, String brotherMajor, String brotherCrossSemester, String brotherFunFact) {
         BrotherId = brotherId;
         BrotherName = brotherName;
-        BrotherAbout = brotherAbout;
+        BrotherWhyJoin = brotherAbout;
         BrotherPicture = brotherPicture;
         BrotherMajor = brotherMajor;
         BrotherCrossSemester = brotherCrossSemester;
@@ -27,7 +27,7 @@ public class Brother implements Parcelable {
     protected Brother(Parcel in) {
         BrotherId = in.readInt();
         BrotherName = in.readString();
-        BrotherAbout = in.readString();
+        BrotherWhyJoin = in.readString();
         BrotherPicture = in.readString();
         BrotherMajor = in.readString();
         BrotherCrossSemester = in.readString();
@@ -39,7 +39,7 @@ public class Brother implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(BrotherId);
         dest.writeString(BrotherName);
-        dest.writeString(BrotherAbout);
+        dest.writeString(BrotherWhyJoin);
         dest.writeString(BrotherPicture);
         dest.writeString(BrotherMajor);
         dest.writeString(BrotherCrossSemester);
@@ -63,12 +63,12 @@ public class Brother implements Parcelable {
         BrotherName = brotherName;
     }
 
-    public String getBrotherAbout() {
-        return BrotherAbout;
+    public String getBrotherWhyJoin() {
+        return BrotherWhyJoin;
     }
 
-    public void setBrotherAbout(String brotherAbout) {
-        BrotherAbout = brotherAbout;
+    public void setBrotherWhyJoin(String brotherWhyJoin) {
+        BrotherWhyJoin = brotherWhyJoin;
     }
 
     public String getBrotherPicture() {

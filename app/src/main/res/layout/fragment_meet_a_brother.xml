@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <RelativeLayout
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:id="@+id/fragment_meet_a_brother_image_layout"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
@@ -15,9 +16,8 @@
 
         <ImageView
             android:id="@+id/fragment_meet_a_brother_imageView"
-            android:layout_width="128dp"
-            android:layout_height="128dp"/>
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
         <ProgressBar
             android:id="@+id/fragment_meet_a_brother_brother_image_progressBar"
             android:layout_width="wrap_content"
@@ -33,15 +33,15 @@
         android:layout_toRightOf="@+id/fragment_meet_a_brother_image_layout"
         android:layout_toEndOf="@+id/fragment_meet_a_brother_image_layout"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp">
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/test_string"
-            android:textStyle="bold|"
-            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textSize="14sp"
             android:id="@+id/fragment_meet_a_brother_name"/>
 
         <TextView
@@ -79,12 +79,12 @@
         android:orientation="vertical">
 
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about_string"
-        android:textSize="24sp"
-        android:textStyle="italic"
-        />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/why_tau_psi_string"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,29 +97,29 @@
     </LinearLayout>
 
     <ImageButton
-        android:layout_width="46dp"
-        android:layout_height="46dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@drawable/round_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="56dp"
         android:layout_marginBottom="10dp"
-        android:src="@mipmap/right_arrow"
-        android:padding="5dp"
+        android:src="@mipmap/right_arrow_"
+        android:padding="10dp"
         android:id="@+id/fragment_meet_a_brother_right"/>
 
     <ImageButton
-        android:layout_width="46dp"
-        android:layout_height="46dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@drawable/round_button"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
-        android:src="@mipmap/left_arrow"
-        android:padding="5dp"
+        android:src="@mipmap/left_arrow_"
+        android:padding="10dp"
         android:id="@+id/fragment_meet_a_brother_left"/>
 
 </RelativeLayout>

@@ -59,7 +59,7 @@
             </item>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="#ff0099cc" />
+                    <solid android:color="@color/button_color" />
                 </shape>
             </item>
         </layer-list>

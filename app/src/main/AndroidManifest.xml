@@ -1,7 +1,10 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.asutaupsi.taupsi">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+
+
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
@@ -11,9 +14,10 @@
         android:name=".infrastructure.TauPsiApplication">
 
 
-
-        <activity android:name=".activities.MainActivity"
-        android:screenOrientation="portrait">
+        <activity
+            android:name=".activities.SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
 
         <intent-filter>
             <action android:name="android.intent.action.MAIN"/>
@@ -22,7 +26,8 @@
 
         </activity>
 
-
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activities.YoutubePlayerActivity"
             android:theme="@style/AlertDialogCustom"/>
 

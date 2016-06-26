@@ -145,7 +145,7 @@ public class MeetABrotherFragment extends BaseFragment {
 
         mbrotherProgressBar.setVisibility(View.VISIBLE);
 
-        Picasso.with(getActivity().getApplicationContext())
+        Picasso.with(getActivity())
                 .load(brother.getBrotherPicture()).
                 into(brotherImage, new Callback() {
                     @Override
@@ -162,7 +162,7 @@ public class MeetABrotherFragment extends BaseFragment {
         brotherCrossSemester.setText(getString(R.string.crossed_intro, brother.getBrotherCrossSemester()));
         mbrotherFunFact.setText(getString(R.string.fun_fact_intro,brother.getBrotherFunFact()));
         mbrotherMajor.setText(getString(R.string.major_intro,brother.getBrotherMajor()));
-        mbrotherAboutParagraph.setText(brother.getBrotherAbout());
+        mbrotherAboutParagraph.setText(brother.getBrotherWhyJoin());
 
     }
 }

@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">AsuTauPsi</string>
+    <string name="app_name">Asu Tau Psi</string>
     <string name="test_string">Test</string>
     <string name="brother_name">%1$s</string>
-    <string name="about_string">About:</string>
-    <string name="crossed_intro">Cross Semester: %1$s</string>
+    <string name="why_tau_psi_string">Why Tau Psi?</string>
+    <string name="crossed_intro">Joined: %1$s</string>
     <string name="major_intro">Major: %1$s</string>
     <string name="fun_fact_intro">Fun Fact: %1$s</string>
     <string name="rush_header">What is Rush?</string>
@@ -16,17 +16,15 @@
         This is not your typical fraternity. We don’t have trust funds. We don’t charge an exorbitant amount of money to hold membership every year.
         Tau Psi Omega is unique in and of itself. We are a multi-cultural and community service based fraternity.
         We take pride in the diverse make-up of our fraternity in terms of nationality, ethnicity, race, religion.
-        As a community service based fraternity we hold providing quality and meaningful community service paramount in our fraternity;
-        we are to community service what Phil Jackson is to the Triangle offense (we are big proponents of it, we are the best at it and we
-        truly unwaveringly believe in doing it). Oh yeah, don’t worry, believe me when I say we do know how to have fun too.
+        As a community service based fraternity we hold providing quality and meaningful community service paramount in our fraternity.
+        In addition to all of this, we also like to have fun!
         We are in college after all and lets be real; in addition to preparing ourselves for future careers
         we also want to have the times of our lives.
         The best thing about Tau Psi Omega is that we do all of these things together.
-        The brotherhood is real, we aren’t just some 4 years and then we do our own thing.
-        This brotherhood is for life.  We have so many personalities as well and there is a niche for every single type of person.
+        The brotherhood is real, this brotherhood is for life.  We have so many personalities as well and there is a niche for every single type of person.
         Whether you are a bookworm, computer nerd, a gym rat, an intramural sports all-star or just a guy still trying to
         really find yourself we got room for you and spot for you if you are willing to put in the work to earn these letters.
-        Tau. Psi. Omega.
+
 
 
 
@@ -55,4 +53,6 @@
     </string>
 
 
+
+    <string name="foo">\u03A4 \u03a8 \u03a9 </string>
 </resources>

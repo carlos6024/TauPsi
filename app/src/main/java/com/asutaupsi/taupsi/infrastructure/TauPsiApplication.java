@@ -3,6 +3,7 @@ package com.asutaupsi.taupsi.infrastructure;
 import android.app.Application;
 
 import com.asutaupsi.taupsi.services.Module;
+import com.firebase.client.Firebase;
 import com.squareup.otto.Bus;
 
 public class TauPsiApplication extends Application {
@@ -16,6 +17,7 @@ public class TauPsiApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Firebase.setAndroidContext(this);
         Module.register(this);
     }
 
