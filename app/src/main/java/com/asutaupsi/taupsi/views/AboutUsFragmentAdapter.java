@@ -1,6 +1,7 @@
 package com.asutaupsi.taupsi.views;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import com.asutaupsi.taupsi.entities.InformationCard;
 
 import java.util.ArrayList;
 
-public class AboutUsAdapter extends RecyclerView.Adapter {
+public class AboutUsFragmentAdapter extends RecyclerView.Adapter {
     private final String LOG_TAG = AboutFragment.class.getSimpleName();
     private static final int VIEW_TYPE_MAIN_HEADER =1;
     private static final int VIEW_TYPE_SERVICE_VIDEOS =2;
@@ -30,7 +31,7 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
     private AboutUsListener listener;
 
 
-    public AboutUsAdapter(BaseActivity baseActivity, AboutUsListener listener) {
+    public AboutUsFragmentAdapter(BaseActivity baseActivity, AboutUsListener listener) {
         this.activity = baseActivity;
         this.listener = listener;
         inflater = baseActivity.getLayoutInflater();
@@ -104,7 +105,7 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View rootView = inflater.inflate(R.layout.list_information_videos,parent,false);
+        View rootView = inflater.inflate(R.layout.list_information_cards,parent,false);
 
         if(viewType == VIEW_TYPE_MAIN_HEADER){
             return  new AboutUsAdapterMainHeader(inflater,parent);
@@ -123,7 +124,7 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
         }
 
         else if(viewType == VIEW_TYPE_ACADEMIC_VIDEOS){
-            final AcademicServiceViewHolder academicHolder = new AcademicServiceViewHolder(rootView);
+            final BrotherHoodViewHolder academicHolder = new BrotherHoodViewHolder(rootView);
             academicHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -172,19 +173,21 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
             holder.itemView.setTag(serviceVideo);
             ((CommunityServiceViewHolder) holder).populate(activity,serviceVideo);
 
-        } else if(holder instanceof AcademicServiceViewHolder){
-            position = position -2 -academicVideos.size()-1;
-            //6
-
-
-
+        } else if(holder instanceof BrotherHoodViewHolder){
+            position --;
+            position --;
+            position --;
+            position --;
+            position --;
             InformationCard academicVideo = academicVideos.get(position);
             holder.itemView.setTag(academicVideo);
-            ((AcademicServiceViewHolder) holder).populate(activity,academicVideo);
+            ((BrotherHoodViewHolder) holder).populate(activity,academicVideo);
         } else if(holder instanceof SocialServiceViewHolder){
             //The trick here is to subtract the old position subtracting minus the list size and 1. Not sure how to implement still
             //Just add -- Until the adapter works lol
             //position = position -5 - socialVideos.size();
+            position --;
+            position --;
             position --;
             position --;
             position --;
@@ -201,17 +204,20 @@ public class AboutUsAdapter extends RecyclerView.Adapter {
 
             if(position == servicePosition)
             {
+
+                Log.i(LOG_TAG,Integer.toString(servicePosition));
                 viewHolder.populate("Service");
             }
 
 
             if(position == academicPosition)
             {
-                viewHolder.populate("Academics");
+                Log.i(LOG_TAG,Integer.toString(academicPosition));
+                viewHolder.populate("Brotherhood");
             }
 
 
-            if(position == socialPosition-1)
+            if(position == socialPosition)
             {
                 viewHolder.populate("Social");
             }

@@ -29,8 +29,6 @@ public class InMemoryPhotoService extends BaseInMemeoryService {
 
         ));
 
-
-
         response.FormalEventPhotos.add(new EventPhoto(
                 3,
                 "Formal",
@@ -38,7 +36,7 @@ public class InMemoryPhotoService extends BaseInMemeoryService {
         ));
 
         bus.post(response);
-
-
     }
+
+
 }

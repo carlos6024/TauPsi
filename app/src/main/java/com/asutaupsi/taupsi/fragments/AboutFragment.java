@@ -15,12 +15,12 @@ import com.asutaupsi.taupsi.activities.EventPhotoPagerActivity;
 import com.asutaupsi.taupsi.activities.YoutubePlayerActivity;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.asutaupsi.taupsi.entities.InformationCard;
-import com.asutaupsi.taupsi.views.AboutUsAdapter;
+import com.asutaupsi.taupsi.views.AboutUsFragmentAdapter;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 
-public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutUsListener {
+public class AboutFragment extends BaseFragment implements AboutUsFragmentAdapter.AboutUsListener {
     private final String LOG_TAG = AboutFragment.class.getSimpleName();
 
     private ArrayList<InformationCard> communityVideos;
@@ -38,7 +38,7 @@ public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutU
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_about,container,false);
-            AboutUsAdapter adapter = new AboutUsAdapter((BaseActivity) getActivity(),this);
+            AboutUsFragmentAdapter adapter = new AboutUsFragmentAdapter((BaseActivity) getActivity(),this);
             communityVideos = adapter.getCommunityVideos();
             academicsVideos = adapter.getAcademicVideos();
             socialVideos = adapter.getSocialVideos();
@@ -73,7 +73,7 @@ public class AboutFragment extends BaseFragment implements AboutUsAdapter.AboutU
     @Subscribe
     public void getAcademicsVideos(final ServiceCalls.SearchAcademicsInformationResponse response){
         academicsVideos.clear();
-        academicsVideos.addAll(response.academicInformationList);
+        academicsVideos.addAll(response.brotherHoodInformationList);
         Log.i(LOG_TAG,Integer.toString(academicsVideos.size()) + " academics Videos Added");
     }
 

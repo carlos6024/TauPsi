@@ -14,17 +14,39 @@ public class InMemoryInformationCardServices extends BaseInMemeoryService {
 
 
     @Subscribe
-    public void getCommunityVideos(ServiceCalls.SearchCommunityInformationRequest request){
+    public void getCommunityInforamtionCards(ServiceCalls.SearchCommunityInformationRequest request){
         ServiceCalls.SearchCommunityInformationResponse response = new ServiceCalls.SearchCommunityInformationResponse();
         response.communityInformationList = new ArrayList<>();
 
-        response.communityInformationList.add(
-                    new InformationCard(1,"Sin Fronteras","Every year Tau psi Omega takes a trip down to mexico in oder to give back,"
-                    ,"Service","http://www.gravatar.com/avatar/" + 1 + "?d=identicon","wzO7rK50P8w",true)
+        response.communityInformationList.add(new InformationCard(
+                        1,"Without Borders (Sin Fronteras)","Around November, we make our annual service tripe to the town of Hermosillo, Sonora, Mexico to deliver food and toys to the families in the community."
+                        ,"Service","https://scontent.fphx1-2.fna.fbcdn.net/v/t1.0-9/9763_805171952877532_8416560338607406648_n.jpg?oh=b6fbdb8bd623139b673604bf2180154b&oe=5806CD18","wzO7rK50P8w",true)
         );
 
+        response.communityInformationList.add(
+                new InformationCard(2,
+                        "Be a Leader","Our philanthropy is promoting higher education to the youth. To do this, we partnered with the Be a Leader Foundation to help mentor students about the aspects of college.",
+                        "Service","https://scontent.fphx1-2.fna.fbcdn.net/t31.0-8/10644405_767323046662423_2721762627528987226_o.jpg",null,false)
+        );
+
+        bus.post(response);
+    }
 
 
+    @Subscribe
+    public void getBrotherHoodInformationCards(ServiceCalls.SearchAcademicsInformationRequest request){
+        ServiceCalls.SearchAcademicsInformationResponse response = new ServiceCalls.SearchAcademicsInformationResponse();
+        response.brotherHoodInformationList = new ArrayList<>();
+
+        response.brotherHoodInformationList.add( new InformationCard(
+                3,"Traveling","From visiting Turkey for spring break to Singapore for a brothers" +
+                " wedding, here are some of the adventures our brothers shared together.","Brotherhood",
+                "https://scontent.fphx1-2.fna.fbcdn.net/v/t1.0-9/12688110_10207553594890834_6811133184583623525_n.jpg?oh=365ac0b7bc80beeecdd920c7fd178ffd&oe=580FE07C","",false));
+
+
+        response.brotherHoodInformationList.add(new InformationCard(
+                4,"Graduation","Above all, the mission of the fraternity is to graduate brothers. Attending graduation every semester and watching our brothers walk the stage is the ultimate brotherhood event.","Brotherhood",
+                        "https://scontent.fphx1-2.fna.fbcdn.net/t31.0-8/13147780_1116200035108054_2287358440528092965_o.jpg","RGJW0lni76w",true));
 
         bus.post(response);
     }
@@ -37,12 +59,12 @@ public class InMemoryInformationCardServices extends BaseInMemeoryService {
 
 
         response.socialVideos.add(
-                new InformationCard(1,"Sexy Showcase","Valentines Day is a day of love and we promote sex awarness",
-                        "Social","http://www.gravatar.com/avatar/" + 2 + "?d=identicon","o7OiiTRqExs",true));
+                new InformationCard(5,"Sexy Showcase","During the time of Valentines Day, we host the Sexy Showcase which is designed to promote sexual awareness.",
+                        "Social","https://scontent.fphx1-2.fna.fbcdn.net/t31.0-8/12485847_1043898569004868_2273001470333005359_o.jpg","o7OiiTRqExs",false));
 
         response.socialVideos.add(
-                new InformationCard(2,"Formal","At the end of the year, brothers both undergraduate and alumni gather to celebrate. Here are some photos from last years event",
-                        "Social","http://www.gravatar.com/avatar/" + 3 + "?d=identicon","o7OiiTRqExs",false)
+                new InformationCard(6,"Strolling","Strolling is a dance performance that showcase synchronized movements. We perform these strolls as both for fun and for competition. Here is a recap of one of our recent stroll competitions..",
+                        "Social","https://scontent.fphx1-2.fna.fbcdn.net/t31.0-8/1899319_662335587161170_2028780192_o.jpg","JAOXPIY7xOs",true)
         );
 
 
@@ -50,17 +72,4 @@ public class InMemoryInformationCardServices extends BaseInMemeoryService {
     }
 
 
-    @Subscribe
-    public void getAcademicsVideos(ServiceCalls.SearchAcademicsInformationRequest request){
-        ServiceCalls.SearchAcademicsInformationResponse response = new ServiceCalls.SearchAcademicsInformationResponse();
-        response.academicInformationList = new ArrayList<>();
-
-
-        response.academicInformationList.add(
-                    new InformationCard(1,"Graduation","Above all, Tau Psi Omegas mission is to graduate our brothers here is the class of" +
-                            "2015","Academics","http://www.gravatar.com/avatar/" + 4 + "?d=identicon","RGJW0lni76w",true));
-
-
-        bus.post(response);
-    }
 }

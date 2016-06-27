@@ -75,7 +75,7 @@ public class ServiceCalls {
     }
 
     public static class SearchAcademicsInformationResponse {
-        public List<InformationCard> academicInformationList;
+        public List<InformationCard> brotherHoodInformationList;
     }
 
 
@@ -107,4 +107,6 @@ public class ServiceCalls {
     public static class SearchFormalPhotosResponse{
         public List<EventPhoto> FormalEventPhotos;
     }
+
+
 }

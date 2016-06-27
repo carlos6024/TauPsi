@@ -33,7 +33,6 @@ public class RushFragment extends BaseFragment implements RushEventAdapter.RushE
         View view = inflater.inflate(R.layout.fragment_rush, container, false);
         adapter = new RushEventAdapter(this,(BaseActivity) getActivity());
         rushEvents = adapter.getRushEvents();
-
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment__rush_recycled_view_view);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

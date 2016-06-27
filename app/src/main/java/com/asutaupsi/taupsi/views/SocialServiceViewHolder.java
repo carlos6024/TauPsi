@@ -4,10 +4,12 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.InformationCard;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 public class SocialServiceViewHolder extends RecyclerView.ViewHolder {
@@ -15,6 +17,7 @@ public class SocialServiceViewHolder extends RecyclerView.ViewHolder {
     private final TextView videoAbout;
     private final ImageView videoImageview;
     private final ImageView typeImageView;
+    private final ProgressBar imageProgressBar;
 
 
     public SocialServiceViewHolder(View view) {
@@ -23,6 +26,7 @@ public class SocialServiceViewHolder extends RecyclerView.ViewHolder {
         videoAbout = (TextView) view.findViewById(R.id.list_informational_video_videoDescription);
         videoImageview = (ImageView) view.findViewById(R.id.list_information_video_videoImage);
         typeImageView = (ImageView) view.findViewById(R.id.list_information_video_icon);
+        imageProgressBar = (ProgressBar) view.findViewById(R.id.list_information_cards_progressBar);
     }
 
 
@@ -33,7 +37,17 @@ public class SocialServiceViewHolder extends RecyclerView.ViewHolder {
         videoAbout.setText(informationVideo.getVideoDescription());
 
         Picasso.with(context).load(informationVideo.getVideoImage())
-                .into(videoImageview);
+                .into(videoImageview, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        imageProgressBar.setVisibility(View.INVISIBLE);
+                    }
+
+                    @Override
+                    public void onError() {
+
+                    }
+                });
 
 
         if(!informationVideo.getIsVideo()){

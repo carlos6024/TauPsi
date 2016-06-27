@@ -45,6 +45,7 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity
         WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
         layoutParams.screenBrightness = 1F;
         setContentView(R.layout.fragment_youtube_player);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         getWindow().setAttributes(layoutParams);
         //getWindow().setLayout(screenWidth, WindowManager.LayoutParams.WRAP_CONTENT);
         video = getIntent().getParcelableExtra(EXTRA_VIDEO_INFO);
