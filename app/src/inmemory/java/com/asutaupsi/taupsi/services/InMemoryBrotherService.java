@@ -1,5 +1,7 @@
 package com.asutaupsi.taupsi.services;
 
+import android.os.AsyncTask;
+
 import com.asutaupsi.taupsi.infrastructure.TauPsiApplication;
 import com.asutaupsi.taupsi.entities.Brother;
 import com.squareup.otto.Subscribe;
@@ -14,15 +16,16 @@ public class InMemoryBrotherService extends BaseInMemeoryService {
 
     @Subscribe
     public void findBrother(final ServiceCalls.SearchBrothersRequest request){
-        ServiceCalls.SearchBrothersResponse response = new ServiceCalls.SearchBrothersResponse();
+        final ServiceCalls.SearchBrothersResponse response = new ServiceCalls.SearchBrothersResponse();
         response.Brothers = new ArrayList<>();
+
 
         response.Brothers.add(new Brother(1,"Carlos Valentin", "In high school I enjoyed giving back to my community. I joined the fraternity" +
                 "as a way to continue doing so.",
                 "https://scontent.fphx1-2.fna.fbcdn.net/v/t1.0-9/11752037_1690941804468570_874516916355434059_n.jpg?oh=56cdb3b906e9ef647957d5df4fddcbc6&oe=5805FACE",
                 "Mechanical Engineering"
                 ,"Spring 2013",
-                "I made the developer of this app! Well the android version lol"
+                "I am the developer of this app! Well the Android Version lol "
                 ));
 
 
@@ -52,12 +55,6 @@ public class InMemoryBrotherService extends BaseInMemeoryService {
 
 
 
-        response.Brothers.add(new Brother(5,"Juan Reyes", "I joined the fraternity because I wanted to get involved at the organization as ASU well serve my community. Tau Psi Omega was that and the support system I neeeded",
-                "https://scontent.fphx1-2.fna.fbcdn.net/v/t34.0-12/13530683_1062224167199288_1269430085_n.jpg?oh=f8358f819e4b7bb827e59a0397272ec8&oe=57715B8B",
-                "Nonprofit Leadership and Mangement"
-                ,"Fall 2012",
-                "I am left handed!"
-        ));
 
         response.Brothers.add(new Brother(6,"Sergio Jimenez","I felt that the people in the organization reflected the same beliefs that I have and I felt that you guys were what I am able to call a family away from home",
                 "https://scontent.fphx1-2.fna.fbcdn.net/v/t1.0-9/13087543_987308654689880_7747649146973341694_n.jpg?oh=3b354753b73be33c2b0169c8681731f2&oe=580F935D",
@@ -89,6 +86,15 @@ public class InMemoryBrotherService extends BaseInMemeoryService {
                 "Biochemistry (Medicinal)","Spring 2014", "I am going to Russia next spring break"));
 
 
+
+        response.Brothers.add(new Brother(13, "Manuel Ucles", "I Joined Tau Psi Omega for the brotherhood", "https://scontent.fphx1-2.fna.fbcdn.net/v/t1.0-9/11742640_866146226787223_5032382994076070506_n.jpg?oh=245362cc543faef25fe48afb2d982863&oe=57F6FA51",
+                "Biochemistry (Medicinal)", "Spring 2014", "I am going to Russia next spring break"));
+
+        bus.post(response);
+
+
+
+
         /*for(int i = 0 ; i<5;i++){
             String stringId = Integer.toString(i);
 
@@ -100,6 +106,9 @@ public class InMemoryBrotherService extends BaseInMemeoryService {
                     "Spring 2013",
                     "I made this app"));
         }*/
-        bus.post(response);
+
     }
+
+
+
 }

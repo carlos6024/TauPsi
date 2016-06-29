@@ -12,21 +12,31 @@ import com.asutaupsi.taupsi.entities.InformationCard;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class SocialServiceViewHolder extends RecyclerView.ViewHolder {
-    private final TextView videoTitle;
-    private final TextView videoAbout;
-    private final ImageView videoImageview;
-    private final ImageView typeImageView;
-    private final ProgressBar imageProgressBar;
+
+
+    @Bind(R.id.fragment_brother_details_brotherName)
+    TextView videoTitle;
+
+    @Bind(R.id.fragment_brother_details__whyJoined)
+    TextView videoAbout;
+
+    @Bind(R.id.fragment_brother_details_ImageView)
+    ImageView videoImageview;
+
+    @Bind(R.id.list_information_video_icon)
+    ImageView typeImageView;
+
+    @Bind(R.id.fragment_brother_details_progressBar)
+    ProgressBar imageProgressBar;
 
 
     public SocialServiceViewHolder(View view) {
         super(view);
-        videoTitle = (TextView) view.findViewById(R.id.list_informational_video_title_name);
-        videoAbout = (TextView) view.findViewById(R.id.list_informational_video_videoDescription);
-        videoImageview = (ImageView) view.findViewById(R.id.list_information_video_videoImage);
-        typeImageView = (ImageView) view.findViewById(R.id.list_information_video_icon);
-        imageProgressBar = (ProgressBar) view.findViewById(R.id.list_information_cards_progressBar);
+        ButterKnife.bind(this,view);
     }
 
 

@@ -28,12 +28,21 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="android:windowMinWidthMajor">97%</item>
         <item name="android:windowMinWidthMinor">97%</item>
+    </style>
+
+
+    <style name="AnotherDialogCustom" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="windowNoTitle">true</item>
+
 
     </style>
 
 
+
+
     <style name="AlertDialogCustomAppTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowMinWidthMajor">90%</item>

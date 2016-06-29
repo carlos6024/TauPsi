@@ -50,6 +50,7 @@ public class RushFragment extends BaseFragment implements RushEventAdapter.RushE
         Log.i(LOG_TAG, Integer.toString(rushEvents.size()) + " Rush Events Found" );
     }
 
+
     @Override
     public void onRushEventClicked(RushEvent rushEvent) {
 

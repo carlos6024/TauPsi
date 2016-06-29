@@ -19,17 +19,17 @@
 
 
         <RelativeLayout
-            android:id="@+id/list_information_cards_imageLaout"
+            android:id="@+id/fragment_meet_a_brother_details_ImageLayout"
             android:layout_width="match_parent"
             android:layout_height="250dp">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:id="@+id/list_information_video_videoImage"
+            android:id="@+id/fragment_brother_details_ImageView"
             android:layout_alignParentTop="true" />
 
         <ProgressBar
-            android:id="@+id/list_information_cards_progressBar"
+            android:id="@+id/fragment_brother_details_progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"/>
@@ -45,18 +45,18 @@
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="5dp"
                 android:text="@string/test_string"
-                android:id="@+id/list_informational_video_title_name"
-                android:layout_below="@+id/list_information_cards_imageLaout" />
+                android:id="@+id/fragment_brother_details_brotherName"
+                android:layout_below="@+id/fragment_meet_a_brother_details_ImageLayout" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
-                android:layout_below="@+id/list_informational_video_title_name"
+                android:layout_below="@+id/fragment_brother_details_brotherName"
                 android:layout_height="wrap_content"
                 android:text="@string/test_string"
-                android:id="@+id/list_informational_video_videoDescription"
+                android:id="@+id/fragment_brother_details__whyJoined"
                 />
 
 
@@ -64,7 +64,7 @@
         <ImageView
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_below="@+id/list_informational_video_videoDescription"
+            android:layout_below="@+id/fragment_brother_details__whyJoined"
             android:background="@drawable/square_background2"
             android:layout_width="20dp"
             android:layout_height="20dp"

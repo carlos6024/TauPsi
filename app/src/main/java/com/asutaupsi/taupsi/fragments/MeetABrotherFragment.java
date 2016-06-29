@@ -1,5 +1,6 @@
 package com.asutaupsi.taupsi.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
+import com.asutaupsi.taupsi.activities.BrotherPagerActivity;
 import com.asutaupsi.taupsi.entities.Brother;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.asutaupsi.taupsi.views.BrotherRecycleAdapter;
@@ -17,7 +19,6 @@ import com.squareup.otto.Subscribe;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MeetABrotherFragment extends BaseFragment implements BrotherRecycleAdapter.OnBrotherClickedListener {
 
@@ -65,6 +66,8 @@ public class MeetABrotherFragment extends BaseFragment implements BrotherRecycle
 
     @Override
     public void onBrotherClicked(Brother brother) {
-
+        Intent intent = BrotherPagerActivity.newIntent(getActivity(),brother);
+        Log.i(LOG_TAG,brother.getBrotherName() + " was Clicked");
+        startActivity(intent);
     }
 }

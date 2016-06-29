@@ -8,30 +8,29 @@ import android.widget.TextView;
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.RushEvent;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class RushViewHolder extends RecyclerView.ViewHolder {
 
-    //@Bind(R.id.list_rush_events_name)
+    @Bind(R.id.list_rush_events_name)
     TextView rushEventName;
 
-    //@Bind(R.id.list_rush_event_date)
+    @Bind(R.id.list_rush_event_date)
     TextView rushEventDate;
 
-    //@Bind(R.id.list_rush_event_location)
+    @Bind(R.id.list_rush_event_location)
     TextView rushEventLocation;
 
-    //@Bind(R.id.list_rush_event_time)
+    @Bind(R.id.list_rush_event_time)
     TextView rushEventTime;
 
-    //@Bind(R.id.list_rush_events_name_type_layout)
+    @Bind(R.id.list_rush_events_type)
     TextView rushEventType;
 
     public RushViewHolder(View view){
         super(view);
-        rushEventName =(TextView) view.findViewById(R.id.list_rush_events_name);
-        rushEventDate = (TextView) view.findViewById(R.id.list_rush_event_date);
-        rushEventLocation =(TextView) view.findViewById(R.id.list_rush_event_location);
-        rushEventTime = (TextView) view.findViewById(R.id.list_rush_event_time);
-        rushEventType = (TextView) view.findViewById(R.id.list_rush_events_type);
+        ButterKnife.bind(this,view);
     }
 
 

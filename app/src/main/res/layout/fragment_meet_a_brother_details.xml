@@ -1,125 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <RelativeLayout
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:id="@+id/fragment_meet_a_brother_image_layout"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp">
-
-        <ImageView
-            android:id="@+id/fragment_meet_a_brother_imageView"
+        <RelativeLayout
+            android:id="@+id/fragment_meet_a_brother_details_ImageLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-        <ProgressBar
-            android:id="@+id/fragment_meet_a_brother_brother_image_progressBar"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/fragment_brother_details_ImageView"
+                android:layout_alignParentTop="true" />
+
+            <ProgressBar
+                android:id="@+id/fragment_brother_details_progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
-    </RelativeLayout>
+            android:layout_marginStart="5dp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dp"
+            android:text="@string/test_string"
+            android:id="@+id/fragment_brother_details_brotherName"
+            android:layout_below="@+id/fragment_meet_a_brother_details_ImageLayout" />
 
-    <LinearLayout
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:text="@string/test_string"
-        android:layout_toRightOf="@+id/fragment_meet_a_brother_image_layout"
-        android:layout_toEndOf="@+id/fragment_meet_a_brother_image_layout"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginStart="5dp">
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:text="@string/test_string"
+        android:layout_below="@+id/fragment_brother_details_brotherName"
+        android:id="@+id/fragment_brother_details_brotherMajor"
+        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/test_string"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:id="@+id/fragment_meet_a_brother_name"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/crossed_intro"
-            android:layout_marginTop="2dp"
-            android:textSize="12sp"
-            android:id="@+id/fragment_meet_a_brother_CrossSemester"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/major_intro"
-            android:layout_marginTop="2dp"
-            android:textSize="12sp"
-            android:id="@+id/fragment_meet_a_brother_Major"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fun_fact_intro"
-            android:layout_marginTop="2dp"
-            android:textSize="12sp"
-            android:id="@+id/fragment_meet_a_brother_FunFact"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fragment_meet_a_brother_image_layout"
-        android:layout_alignStart="@+id/fragment_meet_a_brother_image_layout"
-        android:layout_alignLeft="@id/fragment_meet_a_brother_image_layout"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:text="@string/test_string"
+        android:layout_below="@+id/fragment_brother_details_brotherMajor"
+        android:id="@+id/fragment_brother_details_crossDate"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:text="@string/test_string"
+        android:layout_below="@+id/fragment_brother_details_crossDate"
+        android:id="@+id/fragment_brother_details_crossFunFact"
+        />
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        android:text="@string/why_tau_psi_string"
+        android:id="@+id/fragment_brother_details_whyJoinedHeader"
+        android:layout_below="@+id/fragment_brother_details_crossFunFact"
+        />
+
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/why_tau_psi_string"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            />
-        <TextView
-            android:layout_width="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/fragment_brother_details_whyJoinedHeader"
             android:layout_height="wrap_content"
             android:text="@string/test_string"
+            android:id="@+id/fragment_brother_details__whyJoined"
+            />
 
-            android:textStyle="italic"
-            android:id="@+id/fragment_meet_a_brother_about" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/round_button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginBottom="10dp"
-        android:src="@mipmap/right_arrow_"
-        android:padding="10dp"
-        android:id="@+id/fragment_meet_a_brother_right"/>
 
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/round_button"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
-        android:src="@mipmap/left_arrow_"
-        android:padding="10dp"
-        android:id="@+id/fragment_meet_a_brother_left"/>
 
-</RelativeLayout>
