@@ -12,9 +12,10 @@ public class RushEvent implements Parcelable {
     private String eventLocation;
     private double eventLatitude;
     private double eventLongitude;
+    private boolean isAtAsu;
+    private String eventDiscription;
 
-
-    public RushEvent(int eventId, String eventName, String eventType, String eventDate, String eventTime, String eventLocation, double eventLatitude, double eventLongitude) {
+    public RushEvent(int eventId, String eventName, String eventType, String eventDate, String eventTime, String eventLocation, double eventLatitude, double eventLongitude , boolean isAtAsu , String eventDiscription) {
         this.eventId = eventId;
         this.eventName = eventName;
         this.eventType = eventType;
@@ -23,6 +24,8 @@ public class RushEvent implements Parcelable {
         this.eventLocation = eventLocation;
         this.eventLatitude = eventLatitude;
         this.eventLongitude = eventLongitude;
+        this.isAtAsu = isAtAsu;
+        this.eventDiscription = eventDiscription;
     }
 
     protected RushEvent(Parcel in) {
@@ -34,6 +37,8 @@ public class RushEvent implements Parcelable {
         eventLocation = in.readString();
         eventLatitude = in.readDouble();
         eventLongitude = in.readDouble();
+        isAtAsu = in.readByte() !=0;
+        eventDiscription = in.readString();
     }
 
     @Override
@@ -46,8 +51,31 @@ public class RushEvent implements Parcelable {
         dest.writeString(eventLocation);
         dest.writeDouble(eventLatitude);
         dest.writeDouble(eventLongitude);
+        dest.writeByte((byte) (isAtAsu ? 1 : 0));
+        dest.writeString(eventDiscription);
+
     }
 
+
+    public boolean isAtAsu() {
+        return isAtAsu;
+    }
+
+    public String getEventDiscription() {
+        return eventDiscription;
+    }
+
+    public void setEventDiscription(String eventDiscription) {
+        this.eventDiscription = eventDiscription;
+    }
+
+    public void setIsAtAsu(boolean isAtAsu) {
+        this.isAtAsu = isAtAsu;
+    }
+
+    public static Creator<RushEvent> getCREATOR() {
+        return CREATOR;
+    }
 
     public int getEventId() {
         return eventId;
@@ -112,6 +140,10 @@ public class RushEvent implements Parcelable {
     public void setEventLongitude(double eventLongitude) {
         this.eventLongitude = eventLongitude;
     }
+
+
+
+
 
     public static final Creator<RushEvent> CREATOR = new Creator<RushEvent>() {
         @Override

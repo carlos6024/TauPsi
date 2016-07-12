@@ -2,21 +2,27 @@ package com.asutaupsi.taupsi.views;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.asutaupsi.taupsi.R;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 public class AboutUsAdapterTextHeader extends RecyclerView.ViewHolder {
-    private final TextView textView;
+    @Bind(R.id.simple_header_textView)
+    TextView simpleHeaderTextView;
 
-    public AboutUsAdapterTextHeader(LayoutInflater inflater, ViewGroup parent) {
-        super(inflater.inflate(R.layout.simple_header,parent,false));
-        textView = (TextView) itemView.findViewById(android.R.id.text1);
+
+    public AboutUsAdapterTextHeader(View view) {
+        super(view);
+        ButterKnife.bind(this,view);
     }
 
     public void populate(String text){
-        textView.setText(text);
+        simpleHeaderTextView.setText(text);
     }
 }

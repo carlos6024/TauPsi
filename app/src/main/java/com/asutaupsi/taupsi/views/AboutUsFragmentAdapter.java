@@ -66,6 +66,7 @@ public class AboutUsFragmentAdapter extends RecyclerView.Adapter {
                 return VIEW_TYPE_VIDEO_HEADER;
             }
             position --;
+
             if(position<communityVideos.size()){
                 return VIEW_TYPE_SERVICE_VIDEOS;
             }
@@ -106,13 +107,14 @@ public class AboutUsFragmentAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView = inflater.inflate(R.layout.list_information_cards,parent,false);
+        View rootView2 = inflater.inflate(R.layout.simple_header,parent,false);
 
         if(viewType == VIEW_TYPE_MAIN_HEADER){
             return  new AboutUsAdapterMainHeader(inflater,parent);
         }
 
         else if(viewType == VIEW_TYPE_SERVICE_VIDEOS){
-            final CommunityServiceViewHolder serviceHolder = new CommunityServiceViewHolder(rootView);
+            final CommunityServiceHolder serviceHolder = new CommunityServiceHolder(rootView);
             serviceHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -137,7 +139,7 @@ public class AboutUsFragmentAdapter extends RecyclerView.Adapter {
 
 
         else if(viewType == VIEW_TYPE_SOCIAL_VIDEOS) {
-            final SocialServiceViewHolder socialHolder = new SocialServiceViewHolder(rootView);
+            final SocialServiceHolder socialHolder = new SocialServiceHolder(rootView);
             socialHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -149,7 +151,7 @@ public class AboutUsFragmentAdapter extends RecyclerView.Adapter {
         }
 
         else if (viewType == VIEW_TYPE_VIDEO_HEADER){
-                return new AboutUsAdapterTextHeader(inflater,parent);
+                return new AboutUsAdapterTextHeader(rootView2);
             }
 
         throw new IllegalArgumentException("ViewType " + viewType + " is not supported");
@@ -166,12 +168,12 @@ public class AboutUsFragmentAdapter extends RecyclerView.Adapter {
         int socialPosition = academicPosition + socialVideos.size()+1;
 
 
-        if(holder instanceof CommunityServiceViewHolder){
+        if(holder instanceof CommunityServiceHolder){
             position --;
             position --;
             InformationCard serviceVideo = communityVideos.get(position);
             holder.itemView.setTag(serviceVideo);
-            ((CommunityServiceViewHolder) holder).populate(activity,serviceVideo);
+            ((CommunityServiceHolder) holder).populate(activity,serviceVideo);
 
         } else if(holder instanceof BrotherHoodViewHolder){
             position --;
@@ -182,7 +184,7 @@ public class AboutUsFragmentAdapter extends RecyclerView.Adapter {
             InformationCard academicVideo = academicVideos.get(position);
             holder.itemView.setTag(academicVideo);
             ((BrotherHoodViewHolder) holder).populate(activity,academicVideo);
-        } else if(holder instanceof SocialServiceViewHolder){
+        } else if(holder instanceof SocialServiceHolder){
             //The trick here is to subtract the old position subtracting minus the list size and 1. Not sure how to implement still
             //Just add -- Until the adapter works lol
             //position = position -5 - socialVideos.size();
@@ -196,7 +198,7 @@ public class AboutUsFragmentAdapter extends RecyclerView.Adapter {
             position --;
             InformationCard socialVideo = socialVideos.get(position);
             holder.itemView.setTag(socialVideo);
-            ((SocialServiceViewHolder) holder).populate(activity,socialVideo);
+            ((SocialServiceHolder) holder).populate(activity,socialVideo);
         } else if (holder instanceof AboutUsAdapterMainHeader){
             AboutUsAdapterMainHeader header = (AboutUsAdapterMainHeader) holder;
         } else if(holder instanceof AboutUsAdapterTextHeader){

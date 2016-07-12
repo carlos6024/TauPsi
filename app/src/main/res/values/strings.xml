@@ -1,16 +1,23 @@
 <resources>
-    <string name="app_name">Asu Tau Psi</string>
+    <string name="app_name">ASU TPO</string>
     <string name="test_string">Test</string>
     <string name="brother_name">%1$s</string>
     <string name="why_tau_psi_string">Why Tau Psi?</string>
     <string name="crossed_intro">Joined: %1$s</string>
     <string name="major_intro">Major: %1$s</string>
     <string name="fun_fact_intro">Fun Fact: %1$s</string>
+    
+    <string name="rush_event_Location">Location: %1$s</string>
+
+    <string name="rush_event_Time">Time: %1$s</string>
+    
+    
     <string name="rush_header">What is Rush?</string>
     <string name="requirements_header">Requirements</string>
     <string name="events_header">Events</string>
     <string name="about_us_header">Tau Psi Omega</string>
     <string name="about_tau_psi">
+
 
 
         This is not your typical fraternity. We don’t have trust funds. We don’t charge an exorbitant amount of money to hold membership every year.
@@ -52,7 +59,16 @@
 
     </string>
 
-
-
     <string name="foo">\u03A4 \u03a8 \u03a9 </string>
+
+    <string name="toolBarHeader">Tau Psi Omega Fraternity Inc.</string>
+
+
+    <string name="social_media_follow">Follow Us on Social Media</string>
+
+    <string name="questions">Contact Us</string>
+
+    <string name="peName">Uriel Valenzuela</string>
+    <string name="peTitle">Pledge Educator</string>
+    <string name="peEmail">Uriel.valenzuela15@gmail.com</string>
 </resources>

@@ -2,6 +2,7 @@ package com.asutaupsi.taupsi.views;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,6 +11,7 @@ import com.asutaupsi.taupsi.entities.RushEvent;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class RushViewHolder extends RecyclerView.ViewHolder {
 
@@ -44,6 +46,8 @@ public class RushViewHolder extends RecyclerView.ViewHolder {
         rushEventLocation.setText(rushEvent.getEventLocation());
 
     }
+
+
 
 
 

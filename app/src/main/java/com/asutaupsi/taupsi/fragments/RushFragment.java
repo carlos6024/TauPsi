@@ -1,6 +1,8 @@
 package com.asutaupsi.taupsi.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.asutaupsi.taupsi.R;
+import com.asutaupsi.taupsi.activities.AsuMapActivity;
 import com.asutaupsi.taupsi.activities.BaseActivity;
+import com.asutaupsi.taupsi.activities.MapsActivity;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.asutaupsi.taupsi.entities.RushEvent;
 import com.asutaupsi.taupsi.views.RushEventAdapter;
@@ -17,12 +21,19 @@ import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class RushFragment extends BaseFragment implements RushEventAdapter.RushEventListener {
     private final String LOG_TAG = RushFragment.class.getSimpleName();
     private RushEventAdapter adapter;
-
     private ArrayList<RushEvent> rushEvents;
+
+    private final static String RUSH_EVENT_INFO = "RUSH_EVENT_INFO";
+
+
     public static RushFragment newInstance(){
         return new RushFragment();
     }
@@ -42,7 +53,6 @@ public class RushFragment extends BaseFragment implements RushEventAdapter.RushE
 
 
 
-
     @Subscribe
     public void onRushEventsLoaded(final ServiceCalls.SearchRushEventsResponse response){
         rushEvents.clear();
@@ -53,6 +63,14 @@ public class RushFragment extends BaseFragment implements RushEventAdapter.RushE
 
     @Override
     public void onRushEventClicked(RushEvent rushEvent) {
-
+        if(!rushEvent.isAtAsu()){
+            Intent intent = new Intent(getActivity(), MapsActivity.class);
+            intent.putExtra(RUSH_EVENT_INFO,rushEvent);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(getActivity(),AsuMapActivity.class);
+            intent.putExtra(RUSH_EVENT_INFO,rushEvent);
+            startActivity(intent);
+        }
     }
 }

@@ -19,7 +19,7 @@ public class InMemoryInformationCardServices extends BaseInMemeoryService {
         response.communityInformationList = new ArrayList<>();
 
         response.communityInformationList.add(new InformationCard(
-                        1,"Without Borders (Sin Fronteras)","Around November, we make our annual service tripe to the town of Hermosillo, Sonora, Mexico to deliver food and toys to the families in the community."
+                        1,"Without Borders (Sin Fronteras)","Around November, we make our annual service trip to the town of Hermosillo, Sonora Mexico. Once there we deliver food and toys to the families in the community."
                         ,"Service","https://scontent.fphx1-2.fna.fbcdn.net/v/t1.0-9/9763_805171952877532_8416560338607406648_n.jpg?oh=b6fbdb8bd623139b673604bf2180154b&oe=5806CD18","wzO7rK50P8w",true)
         );
 

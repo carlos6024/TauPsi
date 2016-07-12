@@ -5,6 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_brother_viewPager"
     android:layout_width="match_parent"
-    android:layout_height="350dp">
+    android:layout_height="350dp"
+    android:background="#AA000000">
 </android.support.v4.view.ViewPager>
 

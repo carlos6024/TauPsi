@@ -60,9 +60,9 @@ public class BrotherHoodViewHolder extends RecyclerView.ViewHolder {
                 });
 
         if(!informationVideo.getIsVideo()){
-            typeImageView.setImageResource(R.mipmap.camer_icon);
+            typeImageView.setImageResource(R.mipmap.camera_icon);
         } else {
-            typeImageView.setImageResource(R.mipmap.video_icon);
+            typeImageView.setImageResource(R.mipmap.video_camera);
         }
     }
 }

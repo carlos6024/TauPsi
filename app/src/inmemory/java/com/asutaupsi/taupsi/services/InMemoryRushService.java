@@ -17,19 +17,30 @@ public class InMemoryRushService extends BaseInMemeoryService {
         ServiceCalls.SearchRushEventsResponse response = new ServiceCalls.SearchRushEventsResponse();
         response.rushEvents = new ArrayList<>();
 
-        for(int i = 0 ; i<5 ;i++){
-            String stringId = Integer.toString(i);
+        response.rushEvents.add(new RushEvent(
+                1,
+                "Passport",
+                "Informational",
+                "8/17/2016",
+                "7pm",
+                "Memorial Union",
+                2.5,
+                2.5,
+                true,
+                "Come and meet us before the semester starts at ASU Passport!"));
 
-            response.rushEvents.add(new RushEvent(
-                    i,
-                    "Rush Event "+ stringId,
-                    "Informational",
-                    "8/24/2016",
-                    "7pm",
-                    "ED 202",
-                    2.5,
-                    2.5));
-        }
+        response.rushEvents.add(new RushEvent(
+                2,
+                "Poker Night",
+                "Social",
+                "9/01/2016",
+                "7pm",
+                "1126 E Alemeda Dr. Tempe, AZ 85282",
+                33.400508,
+                -111.919977,
+                false,
+                "Try out your poker face against the brothers this night, winner take all!"));
+
 
         bus.post(response);
     }

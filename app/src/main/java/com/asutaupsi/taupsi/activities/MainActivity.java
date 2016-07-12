@@ -19,17 +19,15 @@ public class MainActivity extends BaseActivity  {
     @Bind(R.id.activity_main_viewPager)
     ViewPager viewPager;
 
-
-
     @Bind(R.id.activity_tab_layout)
     TabLayout tabLayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        getSupportActionBar().setTitle(getString(R.string.toolBarHeader));
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -42,15 +40,3 @@ public class MainActivity extends BaseActivity  {
 
 
 
-
-       /* scheduler.invokeEveryMilliseconds(new Runnable() {
-            @Override
-            public void run() {
-                viewPager.getAdapter().notifyDataSetChanged();
-                i++;
-                Log.i(LOG_TAG,Integer.toString(i));
-
-            }
-        },5000,false);
-
-        */

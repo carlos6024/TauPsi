@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="silver_primary">#757575</color>
-    <color name="silver_secondary">#9e9e9e</color>
+    <color name="silver_primary">#0D47A1</color>
+    <color name="silver_secondary">#616161</color>
     <color name="silver_accent">#757575</color>
     <color name="button_color">#0D47A1</color>
     <color name="white">#fff</color>

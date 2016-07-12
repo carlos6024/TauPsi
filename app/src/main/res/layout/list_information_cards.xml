@@ -65,10 +65,10 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/fragment_brother_details__whyJoined"
-            android:background="@drawable/square_background2"
+            android:background="@drawable/square_background"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@mipmap/camer_icon"
+            android:src="@mipmap/camera_icon"
             android:id="@+id/list_information_video_icon"
             />
 

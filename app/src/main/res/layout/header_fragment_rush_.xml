@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="false">
 
+
     <TextView
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/rush_header"
@@ -16,6 +16,8 @@
         android:layout_gravity="center"
         android:id="@+id/fragment_rush_rush_header"
         />
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,6 +41,7 @@
         />
 
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +53,7 @@
         />
 
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,7 +63,9 @@
         android:text="@string/events_header"
         android:id="@+id/fragment_rush_events_header"
         android:textStyle="bold|"
-        android:layout_marginBottom="5dp"/>
+        />
+
+
 
 
 

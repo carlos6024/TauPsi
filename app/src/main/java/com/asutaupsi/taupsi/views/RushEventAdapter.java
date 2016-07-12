@@ -15,6 +15,8 @@ public class RushEventAdapter extends RecyclerView.Adapter {
     private final String LOG_TAG = RushEventAdapter.class.getSimpleName();
     private static final int VIEW_TYPE_RUSH_HEADER = 1;
     private static final int VIEW_RUSH_EVENTS = 2;
+    private static final int VIEW_RUSH_FOOTER = 3;
+
 
     private ArrayList<RushEvent> rushEvents;
 
@@ -42,10 +44,20 @@ public class RushEventAdapter extends RecyclerView.Adapter {
         }
 
         position --;
+
         if(rushEvents.size()>0){
-            return VIEW_RUSH_EVENTS;
+
+            if(position<rushEvents.size()){
+                return VIEW_RUSH_EVENTS;
+            }
         }
+
         position -= rushEvents.size();
+
+        if (position<rushEvents.size()){
+            return VIEW_RUSH_FOOTER;
+        }
+        position --;
 
         throw new IllegalArgumentException(
                 "we are being asked for an item type for position "+ position +", though we have no such item"
@@ -55,9 +67,11 @@ public class RushEventAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView = inflater.inflate(R.layout.list_rush_events,parent,false);
+        View rootView2 = inflater.inflate(R.layout.header_fragment_rush_,parent,false);
+        View rootView3 = inflater.inflate(R.layout.footer_fragment_rush_social_media,parent,false);
 
         if(viewType == VIEW_TYPE_RUSH_HEADER){
-            return new RushAdapterHeader(inflater,parent);
+            return new RushHeaderHolder(rootView2);
         }
 
         else if (viewType == VIEW_RUSH_EVENTS){
@@ -72,27 +86,39 @@ public class RushEventAdapter extends RecyclerView.Adapter {
         return rushViewHolder;
         }
 
+        else if (viewType == VIEW_RUSH_FOOTER){
+            return new RushFooterHolder(rootView3);
+        }
+
         throw new IllegalArgumentException("ViewType " + viewType + " is not supported");
     }
 
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof RushViewHolder){
+
+        if (holder instanceof RushHeaderHolder) {
+            RushHeaderHolder header = (RushHeaderHolder) holder;
+        }
+
+        else if(holder instanceof RushViewHolder){
             position --;
             RushEvent rushEvent = rushEvents.get(position);
             holder.itemView.setTag(rushEvent);
             ((RushViewHolder) holder).populate(activity,rushEvent);
-        } else if (holder instanceof RushAdapterHeader){
-            RushAdapterHeader header = (RushAdapterHeader) holder;
-        } else {
+        }  else if (holder instanceof RushFooterHolder){
+            RushFooterHolder footer = (RushFooterHolder) holder;
+            ((RushFooterHolder) holder).populate(activity);
+        }
+
+        else {
             throw new IllegalArgumentException("Cannot populate holder of type " + holder.getClass().getName());
         }
     }
 
     @Override
     public int getItemCount() {
-        int count = 1;
+        int count = 2;
 
         if (rushEvents.size()>0){
             count += rushEvents.size();

@@ -16,6 +16,7 @@ import com.asutaupsi.taupsi.activities.YoutubePlayerActivity;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.asutaupsi.taupsi.entities.InformationCard;
 import com.asutaupsi.taupsi.views.AboutUsFragmentAdapter;
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
@@ -79,17 +80,18 @@ public class AboutFragment extends BaseFragment implements AboutUsFragmentAdapte
 
 
     @Override
-    public void onInformationVideoClicked(InformationCard video) {
+    public void onInformationVideoClicked(InformationCard informationCard) {
 
-        if(!video.getIsVideo()){
+        if(!informationCard.getIsVideo()){
             Intent intent = new Intent(getActivity(),EventPhotoPagerActivity.class);
+            intent.putExtra(EXTRA_VIDEO_INFO,informationCard);
             startActivity(intent);
         }
 
         else {
             //startActivity(YouTubeStandalonePlayer.createVideoIntent(getActivity(), YOUTUBE_API_KEY, video.getVideoYoutubeEnding(), 0, true, true));
             Intent intent = new Intent(getActivity(), YoutubePlayerActivity.class);
-            intent.putExtra(EXTRA_VIDEO_INFO, video);
+            intent.putExtra(EXTRA_VIDEO_INFO, informationCard.getVideoYoutubeEnding());
             startActivity(intent);
         }
     }

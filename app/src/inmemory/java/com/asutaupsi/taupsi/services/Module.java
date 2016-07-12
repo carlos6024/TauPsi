@@ -15,5 +15,4 @@ public class Module {
         new InMemoryInformationCardServices(application);
         new InMemoryPhotoService(application);
     }
-
 }

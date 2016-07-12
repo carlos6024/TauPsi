@@ -96,17 +96,42 @@ public class ServiceCalls {
 
 
     /////////////////////////////Photos Service Calls//////////////////////////////////////
-    public static class SearchFormalPhotosRequest{
+    public static class SearchBeALeaderPhotosRequest {
         public String SearchParameter;
-        public SearchFormalPhotosRequest(String searchParameter) {
+        public SearchBeALeaderPhotosRequest(String searchParameter) {
             SearchParameter = searchParameter;
         }
     }
 
 
-    public static class SearchFormalPhotosResponse{
-        public List<EventPhoto> FormalEventPhotos;
+    public static class SearchBeALeaderPhotosResponse {
+        public List<EventPhoto> BeALeaderPhotos;
     }
 
 
+
+
+    public static class SearchTravelingPhotosRequest{
+        public String SearchParameter;
+
+        public SearchTravelingPhotosRequest(String searchParameter) {
+            SearchParameter = searchParameter;
+        }
+    }
+
+    public static class SearchTravelingPhotosResponse{
+        public List<EventPhoto> TravelingEventPhotos;
+    }
+
+
+    public static class SearchSexyShowCaseRequest{
+        public String SearchParameter;
+        public SearchSexyShowCaseRequest(String searchParameter) {
+            SearchParameter = searchParameter;
+        }
+    }
+
+    public static class SearchSexyShowcaseResponse{
+        public List<EventPhoto> SexyShowCasePhotos;
+    }
 }

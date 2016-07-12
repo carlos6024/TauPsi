@@ -6,36 +6,39 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-        <RelativeLayout
-            android:id="@+id/fragment_meet_a_brother_details_ImageLayout"
+    <RelativeLayout
+        android:id="@+id/fragment_meet_a_brother_details_ImageLayout"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        >
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_brother_details_ImageView"
+            android:layout_alignParentTop="true" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/fragment_brother_details_ImageView"
-                android:layout_alignParentTop="true" />
+        <ProgressBar
+            android:id="@+id/fragment_brother_details_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
 
-            <ProgressBar
-                android:id="@+id/fragment_brother_details_progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"/>
-
-        </RelativeLayout>
+    </RelativeLayout>
 
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="5dp"
-            android:text="@string/test_string"
-            android:id="@+id/fragment_brother_details_brotherName"
-            android:layout_below="@+id/fragment_meet_a_brother_details_ImageLayout" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        android:text="@string/test_string"
+        android:id="@+id/fragment_brother_details_brotherName"
+        android:layout_below="@+id/fragment_meet_a_brother_details_ImageLayout" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -84,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        android:textSize="14sp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:textStyle="bold"
@@ -93,19 +97,19 @@
         />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_below="@+id/fragment_brother_details_whyJoinedHeader"
-            android:layout_height="wrap_content"
-            android:text="@string/test_string"
-            android:id="@+id/fragment_brother_details__whyJoined"
-            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/fragment_brother_details_whyJoinedHeader"
+        android:layout_height="wrap_content"
+        android:text="@string/test_string"
+        android:id="@+id/fragment_brother_details__whyJoined"
+        />
 
 
 
-    </RelativeLayout>
+</RelativeLayout>
 
 
 
