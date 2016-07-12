@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+
+    <WebView
+        android:id="@+id/activity_asu_map_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#99000000"
+        android:orientation="vertical"
+
+        >
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="@string/app_name"
+            android:id="@+id/activity_asu_map_rushName"
+            android:layout_gravity="center"
+            android:textColor="#FFF"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/activity_asu_map_rushDate"
+                android:text="@string/test_string"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                />
+            
+            <View
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:background="#fff"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                />
+
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/activity_asu_map_rushLocation"
+                android:text="@string/test_string"
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                />
+
+
+            <View
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:background="#fff"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                />
+
+
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/activity_asu_map_rushTime"
+                android:text="@string/test_string"
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            />
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_string"
+            android:id="@+id/activity_asu_map_rushDescription"
+            android:textColor="#FFF"
+            />
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_asu_map_ProgressBar"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:background="?attr/colorPrimary"
+        />
+
+</RelativeLayout>
+

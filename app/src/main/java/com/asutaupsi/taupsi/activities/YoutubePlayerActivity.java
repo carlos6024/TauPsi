@@ -20,7 +20,7 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity
     private String videoUrl;
     public  final String EXTRA_VIDEO_INFO = "EXTRA_VIDEO_INFO";
     private final int RECOVERY_REQUEST =1;
-    private final String YOUTUBE_API_KEY = "Enter your key Here";
+    private final String YOUTUBE_API_KEY = "Enter Key Here";
     private final String LOG_TAG = YoutubePlayerActivity.class.getSimpleName();
 
     @Override

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp" >
+
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/footer_fragment_rush_rushVideo"
+        android:src="@mipmap/video_camera"
+        android:background="@drawable/round_button"
+        />
+
+    <View
+        android:layout_below="@+id/footer_fragment_rush_rushVideo"
+        android:layout_marginTop="5dp"
+        android:layout_width="180dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="2dp"
+        android:background="@color/silver_accent"
+        android:id="@+id/footer_fragment_rush_line1"
+        />
+
+    <TextView
+        android:layout_below="@+id/footer_fragment_rush_line1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/social_media_follow"
+        android:textSize="14sp"
+        android:id="@+id/footer_fragment_rush_social_media_textHeader"
+        />
+
+
+
+    <View
+        android:layout_below="@+id/footer_fragment_rush_social_media_textHeader"
+        android:layout_marginTop="3dp"
+        android:layout_width="180dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="2dp"
+        android:background="@color/silver_accent"
+        android:id="@+id/footer_fragment_rush_line2"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/footer_fragment_rush_line2"
+        android:layout_marginTop="5dp"
+        android:id="@+id/footer_fragment_social_media_logos"
+
+        >
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.25"
+            android:id="@+id/footer_fragment_rush_facebookFollow"
+            />
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="0.25"
+            android:id="@+id/footer_fragment_rush_InstagramFollow"
+
+            />
+
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="0.25"
+
+            android:id="@+id/footer_fragment_rush_snapFollow"
+            />
+
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="0.25"
+            android:id="@+id/footer_fragment_rush_twitterFollow"
+            />
+    </LinearLayout>
+
+
+
+
+    <View
+        android:layout_below="@+id/footer_fragment_social_media_logos"
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="2dp"
+        android:background="@color/silver_accent"
+        android:id="@+id/footer_fragment_rush_line3"
+        />
+
+
+    <TextView
+        android:layout_below="@+id/footer_fragment_rush_line3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/questions"
+        android:textSize="14sp"
+        android:id="@+id/footer_fragment_rush_social_media_Questions"
+        />
+
+
+
+    <View
+        android:layout_below="@+id/footer_fragment_rush_social_media_Questions"
+        android:layout_marginTop="3dp"
+        android:layout_width="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="2dp"
+        android:background="@color/silver_accent"
+        android:id="@+id/footer_fragment_rush_line4"
+        />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/footer_fragment_rush_line4"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:id="@+id/footer_fragment_social_media_ContactUs">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/footer_fragment_rush_social_media_peName"
+            android:text="@string/peName"
+            />
+
+
+        <View
+            android:layout_marginTop="3dp"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:background="#000"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_toRightOf="@+id/footer_fragment_rush_social_media_peName"
+            android:layout_toEndOf="@+id/footer_fragment_rush_social_media_peName"
+            android:id="@+id/vertical_line_1"
+            />
+
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/peTitle"
+            android:layout_toRightOf="@+id/vertical_line_1"
+            android:layout_toEndOf="@+id/vertical_line_1"
+            android:id="@+id/footer_fragment_rush_social_media_peTitle"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/peEmail"
+            android:textIsSelectable="true"
+            android:layout_below="@+id/footer_fragment_rush_social_media_peName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="15dp"
+
+            />
+    </RelativeLayout>
+
+
+</RelativeLayout>
