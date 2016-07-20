@@ -39,13 +39,13 @@ public class InMemoryInformationCardServices extends BaseInMemeoryService {
         response.brotherHoodInformationList = new ArrayList<>();
 
         response.brotherHoodInformationList.add( new InformationCard(
-                3,"Traveling","From visiting Turkey for spring break to Singapore for a brothers" +
-                " wedding, here are some of the adventures our brothers shared together.","Brotherhood",
+                3,"Traveling","From visiting Turkey for spring break to Singapore for a BrotherFireBase" +
+                " wedding, here are some of the adventures our BrotherFireBase shared together.","Brotherhood",
                 "https://scontent.fphx1-2.fna.fbcdn.net/v/t1.0-9/12688110_10207553594890834_6811133184583623525_n.jpg?oh=365ac0b7bc80beeecdd920c7fd178ffd&oe=580FE07C","",false));
 
 
         response.brotherHoodInformationList.add(new InformationCard(
-                4,"Graduation","Above all, the mission of the fraternity is to graduate brothers. Attending graduation every semester and watching our brothers walk the stage is the ultimate brotherhood event.","Brotherhood",
+                4,"Graduation","Above all, the mission of the fraternity is to graduate BrotherFireBase. Attending graduation every semester and watching our BrotherFireBase walk the stage is the ultimate brotherhood event.","Brotherhood",
                         "https://scontent.fphx1-2.fna.fbcdn.net/t31.0-8/13147780_1116200035108054_2287358440528092965_o.jpg","RGJW0lni76w",true));
 
         bus.post(response);

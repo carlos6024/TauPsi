@@ -24,6 +24,7 @@ public class Brother implements Parcelable {
         BrotherFunFact = brotherFunFact;
     }
 
+
     protected Brother(Parcel in) {
         BrotherId = in.readInt();
         BrotherName = in.readString();

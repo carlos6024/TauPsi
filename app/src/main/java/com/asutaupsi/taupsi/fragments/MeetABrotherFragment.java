@@ -1,5 +1,6 @@
 package com.asutaupsi.taupsi.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -27,12 +28,17 @@ public class MeetABrotherFragment extends BaseFragment implements BrotherRecycle
     public static ArrayList<Brother> brothers;
     private RecyclerView recyclerView;
     private BrotherRecycleAdapter adapter;
+    private  static final String BROTHER_EXTRA_INFO = "BROTHER_EXTRA_INFO";
 
 
     public static MeetABrotherFragment newInstance() {
         return new MeetABrotherFragment();
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,16 +64,31 @@ public class MeetABrotherFragment extends BaseFragment implements BrotherRecycle
 
     @Subscribe
     public void onBrosLoaded(final ServiceCalls.SearchBrothersResponse response){
+        int oldBrotherLength = brothers.size();
         brothers.clear();
+        adapter.notifyItemRangeRemoved(0, oldBrotherLength);
         brothers.addAll(response.Brothers);
+
+        //Delete for Debug method...
+        adapter.notifyItemRangeChanged(0,brothers.size());
         Log.i(LOG_TAG, Integer.toString(brothers.size()));
     }
 
 
     @Override
     public void onBrotherClicked(Brother brother) {
-        Intent intent = BrotherPagerActivity.newIntent(getActivity(),brother);
-        Log.i(LOG_TAG,brother.getBrotherName() + " was Clicked");
-        startActivity(intent);
+        Intent intent = newIntent(getActivity(), brother);
+        Log.i(LOG_TAG, brother.getBrotherName() + " was Clicked");
+        getContext().startActivity(intent);
     }
+
+    public static Intent newIntent(Context context, Brother brother){
+        Intent intent = new Intent(context,BrotherPagerActivity.class);
+        intent.putExtra(BROTHER_EXTRA_INFO, brother);
+        return intent;
+    }
+
+
+
+
 }

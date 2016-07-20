@@ -39,7 +39,7 @@ public class InMemoryRushService extends BaseInMemeoryService {
                 33.400508,
                 -111.919977,
                 false,
-                "Try out your poker face against the brothers this night, winner take all!"));
+                "Try out your poker face against the BrotherFireBase this night, winner take all!"));
 
 
         bus.post(response);

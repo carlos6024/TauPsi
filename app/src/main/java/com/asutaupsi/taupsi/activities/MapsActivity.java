@@ -1,8 +1,10 @@
 package com.asutaupsi.taupsi.activities;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -12,6 +14,8 @@ import android.widget.TextView;
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.RushEvent;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -31,7 +35,6 @@ public class MapsActivity extends BaseActivity {
 
     private GoogleApiClient mClient;
     private GoogleMap mMap;
-    private Location locationCurrent;
     private RushEvent rushEvent;
     private final static String RUSH_EVENT_INFO = "RUSH_EVENT_INFO";
     private final static String LOG_TAG = MapsActivity.class.getSimpleName();
@@ -65,13 +68,6 @@ public class MapsActivity extends BaseActivity {
         rushDate.setText(rushEvent.getEventDate());
         rushLocation.setText(rushEvent.getEventLocation());
 
-
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-                    0);
-        }
 
         mClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)
@@ -113,53 +109,23 @@ public class MapsActivity extends BaseActivity {
     }
 
 
+    private void updateUI() {
+        Log.i(LOG_TAG, "Connected ");
 
-
-
-    private void updateUI(){
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-
-            Log.i(LOG_TAG, "Connected ");
-
-            locationCurrent = LocationServices.FusedLocationApi.getLastLocation(mClient);
-
-            LatLng userPoint = new LatLng(
-                    locationCurrent.getLatitude(), locationCurrent.getLongitude()
+        LatLng rushEventPoint = new LatLng(
+                    rushEvent.getEventLatitude(), rushEvent.getEventLongitude()
             );
 
-            LatLng rushEventPoint = new LatLng(
-                    rushEvent.getEventLatitude(),rushEvent.getEventLongitude()
-            );
-
-
-
-            MarkerOptions userLocationMarker = new MarkerOptions()
-                    .position(userPoint)
-                    .title("Your Location");
-
-
-            MarkerOptions rushEventMarker = new MarkerOptions()
+        MarkerOptions rushEventMarker = new MarkerOptions()
                     .position(rushEventPoint)
                     .title("Rush Event Location")
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
 
-            mMap.clear();
-            mMap.addMarker(userLocationMarker);
-            mMap.addMarker(rushEventMarker);
+        mMap.clear();
+        mMap.addMarker(rushEventMarker);
 
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(rushEventPoint,15));
 
-            LatLngBounds bounds = new LatLngBounds.Builder()
-                    .include(rushEventPoint)
-                    .include(userPoint)
-                    .build();
-
-            int margin = getResources().getDimensionPixelSize(R.dimen.map_inset_margin);
-            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, margin);
-            mMap.animateCamera(cameraUpdate);
-        } else{
-            Log.i(LOG_TAG,"Permisson not yet grandted");
-        }
 
     }
 

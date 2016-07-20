@@ -55,7 +55,7 @@ public class BrotherViewHolder extends RecyclerView.ViewHolder {
 
             }
         });
-/*        Picasso.with(context).load(brother.getBrotherPicture()).into(brotherImage, new Callback() {
+/*        Picasso.with(context).load(BrotherFireBase.getBrotherPicture()).into(brotherImage, new Callback() {
             @Override
             public void onSuccess() {
                 brotherProgressBar.setVisibility(View.GONE);

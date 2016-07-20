@@ -50,6 +50,13 @@ public class BrotherPagerActivity extends BaseActivity {
             }
         });
 
+    }
+
+    @Subscribe
+    public void onBrosLoad(final ServiceCalls.SearchBrothersResponse response){
+        brothers.clear();
+        brothers.addAll(response.Brothers);
+        viewPager.getAdapter().notifyDataSetChanged();
         Brother brother = getIntent().getParcelableExtra(BROTHER_EXTRA_INFO);
         int brotherId = brother.getBrotherId();
 
@@ -59,15 +66,6 @@ public class BrotherPagerActivity extends BaseActivity {
                 break;
             }
         }
-    }
-
-
-
-
-    @Subscribe
-    public void onBrosLoaded(final ServiceCalls.SearchBrothersResponse response){
-        brothers.clear();
-        brothers.addAll(response.Brothers);
         Log.i(LOG_TAG, Integer.toString(brothers.size()));
     }
 

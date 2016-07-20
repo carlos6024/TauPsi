@@ -57,9 +57,14 @@
 
 
 
+        <activity android:name=".activities.PracticeActiviy"
+            android:screenOrientation="portrait"/>
+
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="Enter Key Here"/>
+            android:value="AIzaSyAgYU0L2S6FlC07qiK0Yj-VmNlLlgemEDY"/>
 
 
 
