@@ -31,7 +31,6 @@ public class BrotherPagerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brother_pager);
 
-
         brothers = new ArrayList<>();
         bus.post(new ServiceCalls.SearchBrothersRequest("Hello"));
 
@@ -50,13 +49,21 @@ public class BrotherPagerActivity extends BaseActivity {
             }
         });
 
+
+
+
     }
 
     @Subscribe
     public void onBrosLoad(final ServiceCalls.SearchBrothersResponse response){
-        brothers.clear();
-        brothers.addAll(response.Brothers);
-        viewPager.getAdapter().notifyDataSetChanged();
+       int oldSize = brothers.size();
+        if (oldSize ==0){
+            brothers.clear();
+            brothers.addAll(response.Brothers);
+            viewPager.getAdapter().notifyDataSetChanged();
+        } else{
+            return;
+        }
         Brother brother = getIntent().getParcelableExtra(BROTHER_EXTRA_INFO);
         int brotherId = brother.getBrotherId();
 
@@ -66,6 +73,8 @@ public class BrotherPagerActivity extends BaseActivity {
                 break;
             }
         }
+
+
         Log.i(LOG_TAG, Integer.toString(brothers.size()));
     }
 

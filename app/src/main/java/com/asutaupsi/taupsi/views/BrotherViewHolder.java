@@ -1,16 +1,13 @@
 package com.asutaupsi.taupsi.views;
 
-import android.content.Context;
-import android.net.Uri;
+
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.Brother;
-import com.asutaupsi.taupsi.fragments.MeetABrotherFragment;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -32,42 +29,22 @@ public class BrotherViewHolder extends RecyclerView.ViewHolder {
     }
 
 
-    public void populate(Context context, Brother brother) {
+    public void populate(Brother brother) {
         itemView.setTag(brother);
 
-        Picasso.Builder builder = new Picasso.Builder(context);
+        Picasso.with(brotherImage.getContext()).load(brother.getBrotherPicture())
+                .fit()
+                .centerCrop()
+                .into(brotherImage, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        brotherProgressBar.setVisibility(View.GONE);
+                    }
 
-        builder.listener(new Picasso.Listener() {
-            @Override
-            public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
-                Log.i(MeetABrotherFragment.class.getSimpleName(), "Error " + exception.getMessage());
-            }
-        });
+                    @Override
+                    public void onError() {
 
-        builder.build().load(brother.getBrotherPicture()).into(brotherImage, new Callback() {
-            @Override
-            public void onSuccess() {
-                brotherProgressBar.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
-/*        Picasso.with(context).load(BrotherFireBase.getBrotherPicture()).into(brotherImage, new Callback() {
-            @Override
-            public void onSuccess() {
-                brotherProgressBar.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
-    }
-    */
-
+                    }
+                });
     }
 }

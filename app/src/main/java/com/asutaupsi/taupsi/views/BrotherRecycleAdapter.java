@@ -39,7 +39,7 @@ public class BrotherRecycleAdapter extends RecyclerView.Adapter<BrotherViewHolde
 
     @Override
     public void onBindViewHolder(BrotherViewHolder holder, int position) {
-        holder.populate(activity,brothers.get(position));
+        holder.populate(brothers.get(position));
     }
 
 
