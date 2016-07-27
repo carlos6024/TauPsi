@@ -8,4 +8,10 @@
     <color name="white">#fff</color>
 
 
+    <color name="card_informational_color">#33009688</color>
+    <color name="card_socaial_color">#33FFEB3B</color>
+
+
+
+
 </resources>

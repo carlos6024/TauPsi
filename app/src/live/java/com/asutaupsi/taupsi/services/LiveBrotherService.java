@@ -1,7 +1,5 @@
 package com.asutaupsi.taupsi.services;
 
-import android.util.Log;
-
 import com.asutaupsi.taupsi.entities.Brother;
 import com.asutaupsi.taupsi.entities.FirebaseEntites.BrotherFireBase;
 import com.asutaupsi.taupsi.infrastructure.TauPsiApplication;
@@ -14,7 +12,6 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 
 public class LiveBrotherService extends BaseLiveService {
-    private final String LOG_TAG = LiveBrotherService.class.getSimpleName();
 
     public LiveBrotherService(TauPsiApplication application) {
         super(application);
@@ -24,7 +21,8 @@ public class LiveBrotherService extends BaseLiveService {
     public void loadBrothers(ServiceCalls.SearchBrothersRequest request) {
         final ServiceCalls.SearchBrothersResponse response = new ServiceCalls.SearchBrothersResponse();
         response.Brothers = new ArrayList<>();
-        Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/brothers");
+
+        Firebase reference = new Firebase(request.getSearchType());
 
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -34,13 +32,6 @@ public class LiveBrotherService extends BaseLiveService {
 
                 for (DataSnapshot brotherSnapchat : dataSnapshot.getChildren()) {
                     BrotherFireBase bro = brotherSnapchat.getValue(BrotherFireBase.class);
-                    Log.i(LOG_TAG, bro.getName());
-                    Log.i(LOG_TAG, bro.getWhy());
-                    Log.i(LOG_TAG, bro.getPicture());
-                    Log.i(LOG_TAG, bro.getMajor());
-                    Log.i(LOG_TAG, bro.getCross());
-                    Log.i(LOG_TAG, bro.getFact());
-
 
                     Brother brother = new Brother(
                             index,
@@ -57,6 +48,7 @@ public class LiveBrotherService extends BaseLiveService {
 
 
                 bus.post(response);
+
             }
 
 
@@ -65,7 +57,5 @@ public class LiveBrotherService extends BaseLiveService {
 
             }
         });
-
-        Log.i(LOG_TAG, "Random statement");
     }
 }

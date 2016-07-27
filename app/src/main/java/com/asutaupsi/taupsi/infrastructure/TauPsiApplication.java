@@ -9,6 +9,10 @@ import com.squareup.otto.Bus;
 public class TauPsiApplication extends Application {
     private Bus bus;
 
+    public static final String BROTHER_FIREBASE_REFERENCE = "https://asutaupsi-9d1d9.firebaseio.com/data/brothers";
+    public static final String YOUTUBE_API_KEY = "";
+
+
 
     public TauPsiApplication() {
         bus = new Bus();
@@ -26,5 +30,6 @@ public class TauPsiApplication extends Application {
     public Bus getBus() {
         return bus;
     }
+
 
 }

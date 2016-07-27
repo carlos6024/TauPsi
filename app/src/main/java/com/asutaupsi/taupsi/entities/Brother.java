@@ -52,57 +52,36 @@ public class Brother implements Parcelable {
         return BrotherId;
     }
 
-    public void setBrotherId(int brotherId) {
-        BrotherId = brotherId;
-    }
 
     public String getBrotherName() {
         return BrotherName;
     }
 
-    public void setBrotherName(String brotherName) {
-        BrotherName = brotherName;
-    }
 
     public String getBrotherWhyJoin() {
         return BrotherWhyJoin;
     }
 
-    public void setBrotherWhyJoin(String brotherWhyJoin) {
-        BrotherWhyJoin = brotherWhyJoin;
-    }
 
     public String getBrotherPicture() {
         return BrotherPicture;
     }
 
-    public void setBrotherPicture(String brotherPicture) {
-        BrotherPicture = brotherPicture;
-    }
 
     public String getBrotherMajor() {
         return BrotherMajor;
     }
 
-    public void setBrotherMajor(String brotherMajor) {
-        BrotherMajor = brotherMajor;
-    }
 
     public String getBrotherCrossSemester() {
         return BrotherCrossSemester;
     }
 
-    public void setBrotherCrossSemester(String brotherCrossSemester) {
-        BrotherCrossSemester = brotherCrossSemester;
-    }
 
     public String getBrotherFunFact() {
         return BrotherFunFact;
     }
 
-    public void setBrotherFunFact(String brotherFunFact) {
-        BrotherFunFact = brotherFunFact;
-    }
 
     public static final Creator<Brother> CREATOR = new Creator<Brother>() {
         @Override

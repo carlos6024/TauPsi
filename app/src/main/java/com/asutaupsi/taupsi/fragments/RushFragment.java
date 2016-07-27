@@ -2,7 +2,6 @@ package com.asutaupsi.taupsi.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,20 +15,26 @@ import com.asutaupsi.taupsi.activities.BaseActivity;
 import com.asutaupsi.taupsi.activities.MapsActivity;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.asutaupsi.taupsi.entities.RushEvent;
-import com.asutaupsi.taupsi.views.RushEventAdapter;
+import com.asutaupsi.taupsi.views.RushViews.Item;
+import com.asutaupsi.taupsi.views.RushViews.RushEventAdapter;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import java.util.List;
 
 
 public class RushFragment extends BaseFragment implements RushEventAdapter.RushEventListener {
-    private final String LOG_TAG = RushFragment.class.getSimpleName();
     private RushEventAdapter adapter;
-    private ArrayList<RushEvent> rushEvents;
+    private ArrayList<RushEvent> rushInformationalEvents;
+    private ArrayList<RushEvent> rushSocialEvents;
+    private ArrayList<RushEvent> rushCommunityEvents;
+    private RecyclerView recyclerView;
+
+    private Item information;
+    private Item community;
+    private Item social;
+
+
 
     private final static String RUSH_EVENT_INFO = "RUSH_EVENT_INFO";
 
@@ -42,23 +47,83 @@ public class RushFragment extends BaseFragment implements RushEventAdapter.RushE
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rush, container, false);
-        adapter = new RushEventAdapter(this,(BaseActivity) getActivity());
-        rushEvents = adapter.getRushEvents();
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment__rush_recycled_view_view);
-        recyclerView.setAdapter(adapter);
+
+        adapter = new RushEventAdapter((BaseActivity) getActivity(),this);
+
+        recyclerView = (RecyclerView) view.findViewById(R.id.fragment__rush_recycled_view_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        bus.post(new ServiceCalls.SearchRushEventsRequest("Hello"));
+
+        rushInformationalEvents = new ArrayList<>();
+        rushSocialEvents = new ArrayList<>();
+        rushCommunityEvents = new ArrayList<>();
+
+        List<Item> data = adapter.getData();
+
+
+        information = new Item(RushEventAdapter.HEADER,"Informationals");
+        information.invisibleChildren = new ArrayList<>();
+        community = new Item(RushEventAdapter.HEADER,"Service");
+        community.invisibleChildren = new ArrayList<>();
+        social = new Item(RushEventAdapter.HEADER,"Socials");
+        social.invisibleChildren = new ArrayList<>();
+
+        bus.post(new ServiceCalls.SearchRushInfoEventsRequest("Request"));
+        bus.post(new ServiceCalls.SearchRushCommunityEventsRequest("Request"));
+        bus.post(new ServiceCalls.SearchRushSocialEventsRequest("Request"));
+
+        setUpAdapter();
+
+        data.add(information);
+        data.add(community);
+        data.add(social);
         return view;
+    }
+
+
+    private void setUpAdapter(){
+        if(isAdded()){
+            recyclerView.setAdapter(adapter);
+        }
     }
 
 
 
     @Subscribe
-    public void onRushEventsLoaded(final ServiceCalls.SearchRushEventsResponse response){
-        rushEvents.clear();
-        rushEvents.addAll(response.rushEvents);
-        Log.i(LOG_TAG, Integer.toString(rushEvents.size()) + " Rush Events Found" );
+    public void onRushInformationalLoaded(final ServiceCalls.SearchRushInfoEventsResponse response){
+
+        rushInformationalEvents.clear();
+        rushInformationalEvents.addAll(response.rushInfoEvents);
+        Log.i(RushFragment.class.getSimpleName(), Integer.toString(rushInformationalEvents.size()) + "Events obatined from otto");
+
+        for(RushEvent rushEvent: rushInformationalEvents){
+            information.invisibleChildren.add(new Item(RushEventAdapter.CHILD,rushEvent));
+        }
+     }
+
+
+
+    @Subscribe
+    public void onRushCommunityLoaded(final ServiceCalls.SearchRushCommunityResponse response){
+            rushCommunityEvents.clear();
+            rushCommunityEvents.addAll(response.rushCommunityEvents);
+            for(RushEvent rushEvent:rushCommunityEvents){
+                community.invisibleChildren.add(new Item(RushEventAdapter.CHILD,rushEvent));
+            }
     }
+
+
+
+
+
+    @Subscribe
+    public void onRushSocialLoaded(final ServiceCalls.SearchRushSocialEventsResponse response){
+        rushSocialEvents.clear();
+        rushSocialEvents.addAll(response.rushSocialEvents);
+        for(RushEvent rushEvent:rushSocialEvents){
+            social.invisibleChildren.add(new Item(RushEventAdapter.CHILD,rushEvent));
+        }
+    }
+
 
 
     @Override

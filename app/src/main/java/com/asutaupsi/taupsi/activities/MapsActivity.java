@@ -1,30 +1,19 @@
 package com.asutaupsi.taupsi.activities;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.RushEvent;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import butterknife.Bind;
@@ -63,7 +52,7 @@ public class MapsActivity extends BaseActivity {
         ButterKnife.bind(this);
         rushEvent = getIntent().getParcelableExtra(RUSH_EVENT_INFO);
         rushName.setText(rushEvent.getEventName());
-        rushDescription.setText(rushEvent.getEventDiscription());
+        rushDescription.setText(rushEvent.getEventDescription());
         rushTime.setText(rushEvent.getEventTime());
         rushDate.setText(rushEvent.getEventDate());
         rushLocation.setText(rushEvent.getEventLocation());

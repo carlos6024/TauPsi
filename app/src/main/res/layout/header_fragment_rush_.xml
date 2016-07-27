@@ -6,17 +6,29 @@
     android:clickable="false">
 
 
-    <TextView
+    <RelativeLayout
         android:layout_marginTop="5dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_background"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        >
+
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/rush_header"
-        android:textSize="15sp"
-        android:textStyle="bold|"
-        android:layout_gravity="center"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
         android:id="@+id/fragment_rush_rush_header"
         />
 
+    </RelativeLayout>
 
 
     <TextView
@@ -26,20 +38,34 @@
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:textSize="12sp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:text="@string/rush_description"/>
 
 
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_background"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        >
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
         android:text="@string/requirements_header"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
         android:id="@+id/fragment_rush_requirments_header"
-        android:textStyle="bold|"
+        android:textColor="#000"
+        android:textStyle="bold"
         />
 
+</RelativeLayout>
 
 
     <TextView
@@ -49,23 +75,37 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:textSize="12sp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:text="@string/requirements_description"
         />
 
 
 
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_background"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        >
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:text="@string/events_header"
         android:id="@+id/fragment_rush_events_header"
-        android:textStyle="bold|"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
         />
 
-
+</RelativeLayout>
 
 
 

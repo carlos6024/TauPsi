@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tau Psi</string>
+    <string name="app_name">RushTPO</string>
     <string name="test_string">Test</string>
     <string name="brother_name">%1$s</string>
     <string name="why_tau_psi_string">Why Tau Psi?</string>
@@ -15,31 +15,31 @@
     <string name="rush_header">What is Rush?</string>
     <string name="requirements_header">Requirements</string>
     <string name="events_header">Events</string>
-    <string name="about_us_header">Tau Psi Omega</string>
+    <string name="about_us_header">Introduction</string>
+
+
+
     <string name="about_tau_psi_intro">
-
-
-
         This is not your typical fraternity. We don’t have trust funds. We don’t charge an exorbitant amount of money to hold membership every year.
         Tau Psi Omega is unique in and of itself. We are a multi-cultural and community service based fraternity.
         We take pride in the diverse make-up of our fraternity in terms of nationality, ethnicity, race, religion.
-
-
-
     </string>
 
-    <string name="about_tau_psi_outro">
 
+
+    <string name="about_tau_psi_middle">
         As a community service based fraternity we hold providing quality and meaningful community service paramount in our fraternity.
         In addition to all of this, we also like to have fun!
         We are in college after all and lets be real; in addition to preparing ourselves for future careers
         we also want to have the times of our lives.
+    </string>
+
+
+    <string name="about_tau_psi_end">
         The best thing about Tau Psi Omega is that we do all of these things together.
         The brotherhood is real, this brotherhood is for life.  We have so many personalities as well and there is a niche for every single type of person.
         Whether you are a bookworm, computer nerd, a gym rat, an intramural sports all-star or just a guy still trying to
         really find yourself we got room for you and spot for you if you are willing to put in the work to earn these letters.
-
-
     </string>
 
 
@@ -63,7 +63,7 @@
 
     </string>
 
-    <string name="foo">\u03A4 \u03a8 \u03a9 </string>
+    <string name="greekLetters">\u03A4 \u03a8 \u03a9 </string>
 
     <string name="toolBarHeader">Tau Psi Omega Fraternity Inc.</string>
 

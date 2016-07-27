@@ -55,19 +55,12 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
 
-
-
         <activity android:name=".activities.PracticeActiviy"
             android:screenOrientation="portrait"/>
 
-
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAgYU0L2S6FlC07qiK0Yj-VmNlLlgemEDY"/>
-
-
-
+            android:value="AIzaSyArWDWMVV18qWB0YfeMltYDxzO2RzV9zgU"/>
 
     </application>
 

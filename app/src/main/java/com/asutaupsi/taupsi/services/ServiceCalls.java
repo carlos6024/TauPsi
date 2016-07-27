@@ -13,12 +13,15 @@ public class ServiceCalls {
     }
 
 
-    /////////////////////////////Brothers Service Calls//////////////////////////////////////
     public static class SearchBrothersRequest{
         public String searchType;
 
         public SearchBrothersRequest(String searchType) {
             this.searchType = searchType;
+        }
+
+        public String getSearchType() {
+            return searchType;
         }
     }
 
@@ -28,28 +31,49 @@ public class ServiceCalls {
     }
 
 
-
-
-
-    /////////////////////////////Rush Events Service Calls//////////////////////////////////////
-    public static class SearchRushEventsRequest{
+    public static class SearchRushInfoEventsRequest {
         public String searchType;
 
-        public SearchRushEventsRequest(String searchType) {
+        public SearchRushInfoEventsRequest(String searchType) {
             this.searchType = searchType;
         }
     }
 
-    public static class SearchRushEventsResponse{
-        public List<RushEvent> rushEvents;
+    public static class SearchRushInfoEventsResponse {
+        public List<RushEvent> rushInfoEvents;
+    }
+
+
+    public static class SearchRushCommunityEventsRequest{
+        public String searchType;
+        public SearchRushCommunityEventsRequest(String searchType) {
+            this.searchType = searchType;
+        }
+
+
+    }
+
+
+    public static class SearchRushCommunityResponse{
+        public List<RushEvent> rushCommunityEvents;
+    }
+
+
+    public static class SearchRushSocialEventsRequest {
+        public String searchType;
+
+        public SearchRushSocialEventsRequest(String searchType) {
+            this.searchType = searchType;
+        }
+    }
+
+    public static class SearchRushSocialEventsResponse {
+        public List<RushEvent> rushSocialEvents;
     }
 
 
 
 
-
-
-    /////////////////////////////Information Cards Service Calls//////////////////////////////////////
     public static class SearchCommunityInformationRequest {
         public boolean Search;
 
@@ -95,7 +119,6 @@ public class ServiceCalls {
 
 
 
-    /////////////////////////////Photos Service Calls//////////////////////////////////////
     public static class SearchBeALeaderPhotosRequest {
         public String SearchParameter;
         public SearchBeALeaderPhotosRequest(String searchParameter) {

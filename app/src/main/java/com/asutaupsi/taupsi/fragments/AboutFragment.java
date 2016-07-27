@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +14,19 @@ import com.asutaupsi.taupsi.activities.EventPhotoPagerActivity;
 import com.asutaupsi.taupsi.activities.YoutubePlayerActivity;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.asutaupsi.taupsi.entities.InformationCard;
-import com.asutaupsi.taupsi.views.AboutUsFragmentAdapter;
-import com.google.android.youtube.player.YouTubeStandalonePlayer;
+import com.asutaupsi.taupsi.views.AboutUsViews.AboutUsFragmentAdapter;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 
 public class AboutFragment extends BaseFragment implements AboutUsFragmentAdapter.AboutUsListener {
-    private final String LOG_TAG = AboutFragment.class.getSimpleName();
 
-    private ArrayList<InformationCard> communityVideos;
-    private ArrayList<InformationCard> socialVideos;
-    private ArrayList<InformationCard> academicsVideos;
+    private ArrayList<InformationCard> communityCards;
+    private ArrayList<InformationCard> socialCards;
+    private ArrayList<InformationCard> academicsCards;
+    private AboutUsFragmentAdapter adapter;
+
+
 
     public static final String EXTRA_VIDEO_INFO = "EXTRA_VIDEO_INFO";
 
@@ -35,47 +35,67 @@ public class AboutFragment extends BaseFragment implements AboutUsFragmentAdapte
     }
 
 
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.fragment_about,container,false);
-            AboutUsFragmentAdapter adapter = new AboutUsFragmentAdapter((BaseActivity) getActivity(),this);
-            communityVideos = adapter.getCommunityVideos();
-            academicsVideos = adapter.getAcademicVideos();
-            socialVideos = adapter.getSocialVideos();
-
-            RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment_about_recycler_view);
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_about,container,false);
+        adapter = new AboutUsFragmentAdapter((BaseActivity) getActivity(),this);
+        communityCards = adapter.getCommunityCards();
+        academicsCards = adapter.getBrotherhoodCards();
+        socialCards = adapter.getSocialCards();
 
 
-            bus.post(new ServiceCalls.SearchCommunityInformationRequest(true));
-            bus.post(new ServiceCalls.SearchAcademicsInformationRequest(true));
-            bus.post(new ServiceCalls.SearchSocialInformationRequest(true));
-            return view;
-        }
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment_about_recycler_view);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        bus.post(new ServiceCalls.SearchCommunityInformationRequest(true));
+        bus.post(new ServiceCalls.SearchAcademicsInformationRequest(true));
+        bus.post(new ServiceCalls.SearchSocialInformationRequest(true));
+        return view;
+    }
 
 
 
     @Subscribe
-    public void getCommunityVideos(final ServiceCalls.SearchCommunityInformationResponse response){
-            communityVideos.clear();
-            communityVideos.addAll(response.communityInformationList);
-            Log.i(LOG_TAG, Integer.toString(communityVideos.size()) + " community Videos Added");
+    public void getCommunityCards(final ServiceCalls.SearchCommunityInformationResponse response){
+        int oldSize = communityCards.size();
+        if(oldSize ==0){
+            communityCards.clear();
+            adapter.notifyItemRangeRemoved(0,oldSize);
+            communityCards.addAll(response.communityInformationList);
+            adapter.notifyItemRangeChanged(0, communityCards.size());
+        } else{
+            return;
         }
 
-    @Subscribe
-    public void getSocialVideos(final ServiceCalls.SearchSocialInformationResponse respose){
-        socialVideos.clear();
-        socialVideos.addAll(respose.socialVideos);
-        Log.i(LOG_TAG,Integer.toString(socialVideos.size()) + " social Videos Added");
     }
 
     @Subscribe
-    public void getAcademicsVideos(final ServiceCalls.SearchAcademicsInformationResponse response){
-        academicsVideos.clear();
-        academicsVideos.addAll(response.brotherHoodInformationList);
-        Log.i(LOG_TAG,Integer.toString(academicsVideos.size()) + " academics Videos Added");
+    public void getSocialCards(final ServiceCalls.SearchSocialInformationResponse respose){
+        int oldSize = socialCards.size();
+
+        if(oldSize ==0){
+            socialCards.clear();
+            adapter.notifyItemRangeRemoved(0, oldSize);
+            socialCards.addAll(respose.socialVideos);
+            adapter.notifyItemRangeChanged(0, socialCards.size());
+        } else{
+            return;
+        }
+    }
+
+    @Subscribe
+    public void getBrotherhoodCards(final ServiceCalls.SearchAcademicsInformationResponse response){
+        int oldSize = academicsCards.size();
+
+        if(oldSize ==0){
+            academicsCards.clear();
+            adapter.notifyItemRangeRemoved(0, oldSize);
+            academicsCards.addAll(response.brotherHoodInformationList);
+            adapter.notifyItemRangeChanged(0, academicsCards.size());
+
+        } else{
+            return;
+        }
     }
 
 
@@ -89,7 +109,6 @@ public class AboutFragment extends BaseFragment implements AboutUsFragmentAdapte
         }
 
         else {
-            //startActivity(YouTubeStandalonePlayer.createVideoIntent(getActivity(), YOUTUBE_API_KEY, video.getVideoYoutubeEnding(), 0, true, true));
             Intent intent = new Intent(getActivity(), YoutubePlayerActivity.class);
             intent.putExtra(EXTRA_VIDEO_INFO, informationCard.getVideoYoutubeEnding());
             startActivity(intent);

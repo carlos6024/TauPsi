@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/list_brothers_display_avatar"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:scaleType="centerCrop"/>
 

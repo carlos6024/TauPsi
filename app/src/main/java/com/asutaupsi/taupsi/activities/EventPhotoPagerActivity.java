@@ -32,10 +32,14 @@ public class EventPhotoPagerActivity extends BaseActivity {
         mEventPhotos = new ArrayList<>();
         InformationCard informationCard = getIntent().getParcelableExtra(EXTRA_VIDEO_INFO);
 
-        int CardPosition = informationCard.getVideoId();
+        Log.i(LOG_TAG, "Event Photo Pager Activity called");
+        Log.i(LOG_TAG,Integer.toString(informationCard.getCardId()) + " Card id");
+
+        int CardPosition = informationCard.getCardId();
         switch (CardPosition){
-            case 2:
+            case 1:
                 bus.post(new ServiceCalls.SearchBeALeaderPhotosRequest("Search Param"));
+                Log.i(LOG_TAG, "BE a leader photos requested");
                 break;
             case 3:
                 bus.post(new ServiceCalls.SearchTravelingPhotosRequest("Search Param"));
@@ -45,6 +49,7 @@ public class EventPhotoPagerActivity extends BaseActivity {
                 bus.post(new ServiceCalls.SearchSexyShowCaseRequest("Search Param"));
                 break;
         }
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager = (ViewPager) findViewById(R.id.activity_photo_event_viewPager);
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
@@ -64,25 +69,28 @@ public class EventPhotoPagerActivity extends BaseActivity {
 
 
     @Subscribe
-    public void getFormalPhotos(ServiceCalls.SearchBeALeaderPhotosResponse response){
+    public void getServicePhotos(ServiceCalls.SearchBeALeaderPhotosResponse response) {
         mEventPhotos.clear();
         mEventPhotos.addAll(response.BeALeaderPhotos);
-        Log.i(LOG_TAG, Integer.toString(mEventPhotos.size()) + " formal photos added from otto");
+        mViewPager.getAdapter().notifyDataSetChanged();
+        Log.i(LOG_TAG, Integer.toString(mEventPhotos.size()) + " service photos added from otto");
     }
 
 
     @Subscribe
-    public void getTravelingPhotos(ServiceCalls.SearchTravelingPhotosResponse response){
+    public void getTravelingPhotos(ServiceCalls.SearchTravelingPhotosResponse response) {
         mEventPhotos.clear();
         mEventPhotos.addAll(response.TravelingEventPhotos);
+        mViewPager.getAdapter().notifyDataSetChanged();
         Log.i(LOG_TAG, Integer.toString(mEventPhotos.size()) + " traveling photos added from otto");
     }
 
 
     @Subscribe
-    public void getSecyShowCasePhotos(ServiceCalls.SearchSexyShowcaseResponse response){
+    public void getSecyShowCasePhotos(ServiceCalls.SearchSexyShowcaseResponse response) {
         mEventPhotos.clear();
         mEventPhotos.addAll(response.SexyShowCasePhotos);
+        mViewPager.getAdapter().notifyDataSetChanged();
         Log.i(LOG_TAG,Integer.toString(mEventPhotos.size()) + " sexy show case photos added from otto");
     }
 }

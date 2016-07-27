@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.Brother;
 import com.asutaupsi.taupsi.fragments.BrotherDetailsFragment;
+import com.asutaupsi.taupsi.infrastructure.TauPsiApplication;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.squareup.otto.Subscribe;
 
@@ -32,7 +33,7 @@ public class BrotherPagerActivity extends BaseActivity {
         setContentView(R.layout.activity_brother_pager);
 
         brothers = new ArrayList<>();
-        bus.post(new ServiceCalls.SearchBrothersRequest("Hello"));
+        bus.post(new ServiceCalls.SearchBrothersRequest(TauPsiApplication.BROTHER_FIREBASE_REFERENCE));
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager = (ViewPager) findViewById(R.id.activity_brother_viewPager);
@@ -48,22 +49,19 @@ public class BrotherPagerActivity extends BaseActivity {
                 return brothers.size();
             }
         });
-
-
-
-
     }
+
+
 
     @Subscribe
     public void onBrosLoad(final ServiceCalls.SearchBrothersResponse response){
        int oldSize = brothers.size();
-        if (oldSize ==0){
+        if (oldSize ==0) {
             brothers.clear();
             brothers.addAll(response.Brothers);
             viewPager.getAdapter().notifyDataSetChanged();
-        } else{
-            return;
         }
+
         Brother brother = getIntent().getParcelableExtra(BROTHER_EXTRA_INFO);
         int brotherId = brother.getBrotherId();
 
@@ -73,8 +71,6 @@ public class BrotherPagerActivity extends BaseActivity {
                 break;
             }
         }
-
-
         Log.i(LOG_TAG, Integer.toString(brothers.size()));
     }
 

@@ -5,13 +5,11 @@ import android.os.Parcelable;
 
 public class EventPhoto implements Parcelable {
     private int EventPhotoId;
-    private String EventName;
     private String EventPhotoUrl;
 
 
-    public EventPhoto(int eventPhotoId, String eventName, String eventPhotoUrl) {
+    public EventPhoto(int eventPhotoId, String eventPhotoUrl) {
         EventPhotoId = eventPhotoId;
-        EventName = eventName;
         EventPhotoUrl = eventPhotoUrl;
     }
 
@@ -19,7 +17,6 @@ public class EventPhoto implements Parcelable {
 
     protected EventPhoto(Parcel in) {
         EventPhotoId = in.readInt();
-        EventName = in.readString();
         EventPhotoUrl = in.readString();
     }
 
@@ -29,34 +26,14 @@ public class EventPhoto implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(EventPhotoId);
-        dest.writeString(EventName);
         dest.writeString(EventPhotoUrl);
     }
 
-
-    public int getEventPhotoId() {
-        return EventPhotoId;
-    }
-
-    public void setEventPhotoId(int eventPhotoId) {
-        EventPhotoId = eventPhotoId;
-    }
-
-    public String getEventName() {
-        return EventName;
-    }
-
-    public void setEventName(String eventName) {
-        EventName = eventName;
-    }
 
     public String getEventPhotoUrl() {
         return EventPhotoUrl;
     }
 
-    public void setEventPhotoUrl(String eventPhotoUrl) {
-        EventPhotoUrl = eventPhotoUrl;
-    }
 
     @Override
     public int describeContents() {

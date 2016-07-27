@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
@@ -34,6 +36,7 @@ public class EventPhotoFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         eventPhoto = getArguments().getParcelable(EVENT_PHOTO);
 
+
     }
 
 
@@ -49,9 +52,11 @@ public class EventPhotoFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_event_photos,container,false);
-        ButterKnife.bind(this,rootView);
+        ButterKnife.bind(this, rootView);
         eventPhotoProgressBar.setVisibility(View.VISIBLE);
         Picasso.with(getActivity()).load(eventPhoto.getEventPhotoUrl())
+                .fit()
+                .centerCrop()
                 .into(eventPhotoView, new Callback() {
                     @Override
                     public void onSuccess() {

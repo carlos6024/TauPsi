@@ -13,11 +13,10 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void nextActivity(){
-        Intent intent = new Intent(this, PracticeActiviy.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
-
 }
 
 

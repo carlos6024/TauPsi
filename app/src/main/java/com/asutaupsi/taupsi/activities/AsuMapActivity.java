@@ -1,10 +1,10 @@
 package com.asutaupsi.taupsi.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -40,10 +40,9 @@ public class AsuMapActivity extends BaseActivity {
     @Bind(R.id.activity_asu_map_rushDate)
     TextView rushDate;
 
+    private String link;
 
     private final static String RUSH_EVENT_INFO = "RUSH_EVENT_INFO";
-
-
     private final String LOG_TAG = AsuMapActivity.class.getSimpleName();
 
     @Override
@@ -53,12 +52,18 @@ public class AsuMapActivity extends BaseActivity {
         ButterKnife.bind(this);
         RushEvent rushEvent = getIntent().getParcelableExtra(RUSH_EVENT_INFO);
         rushEventName.setText(rushEvent.getEventName());
-        rushDescription.setText(rushEvent.getEventDiscription());
+        rushDescription.setText(rushEvent.getEventDescription());
         rushEventLocation.setText(rushEvent.getEventLocation());
         rushEventTime.setText(rushEvent.getEventTime());
         rushDate.setText(rushEvent.getEventDate());
         String googleDocs = "http://docs.google.com/gview?embedded=true&url=";
-        String link = "http://www.asu.edu/map/pdf/asu_map_tempe_2015.pdf";
+
+        if(!rushEvent.isDowntown()){
+            link = "http://www.asu.edu/map/pdf/asu_map_tempe_2015.pdf";
+        } else {
+            link = "https://www.asu.edu/map/pdf/asu_map_dwntwnphx_2014.pdf";
+        }
+
         asuMapProgressBar.setMax(100);
 
 
@@ -68,12 +73,12 @@ public class AsuMapActivity extends BaseActivity {
         asuWebView.getSettings().setSupportZoom(true);
 
 
-        asuWebView.setWebChromeClient(new WebChromeClient(){
+        asuWebView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-                if (newProgress ==100){
+                if (newProgress == 100) {
                     asuMapProgressBar.setVisibility(View.GONE);
-                } else{
+                } else {
                     asuMapProgressBar.setVisibility(View.VISIBLE);
                     asuMapProgressBar.setProgress(newProgress);
                 }
@@ -86,6 +91,8 @@ public class AsuMapActivity extends BaseActivity {
             }
 
         });
+
+        Log.i(LOG_TAG,link);
         asuWebView.loadUrl(googleDocs + link);
     }
 

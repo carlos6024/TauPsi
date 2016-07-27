@@ -42,7 +42,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="@string/test_string"
-                android:id="@+id/list_rush_events_type"/>
+                android:id="@+id/list_rush_events_date"/>
 
 
 
@@ -68,19 +68,9 @@
             android:layout_marginStart="10dp"
             android:textSize="12sp"
             android:text="@string/test_string"
-            android:id="@+id/list_rush_event_date"
-            />
-
-        <TextView
-            android:layout_below="@+id/list_rush_event_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:textSize="12sp"
-            android:text="@string/test_string"
             android:id="@+id/list_rush_event_time"
             />
+
 
         <TextView
             android:layout_width="wrap_content"

@@ -79,6 +79,8 @@ public class BrotherDetailsFragment extends BaseFragment {
         brotherWhyTauPsi.setText(brother.getBrotherWhyJoin());
 
         Picasso.with(getActivity()).load(brother.getBrotherPicture())
+                .fit()
+                .centerCrop()
                 .into(brotherPicture, new Callback() {
                     @Override
                     public void onSuccess() {
