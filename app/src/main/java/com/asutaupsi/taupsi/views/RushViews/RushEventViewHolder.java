@@ -41,9 +41,5 @@ public class RushEventViewHolder extends RecyclerView.ViewHolder {
         rushEventLocation.setText(rushEvent.getEventLocation());
     }
 
-
-
-
-
-    }
+}
 

@@ -8,16 +8,24 @@ import android.widget.TextView;
 
 import com.asutaupsi.taupsi.R;
 
-public class RushListHeaderViewHolder extends RecyclerView.ViewHolder {
-    public TextView header_title;
-    public ImageView buttonToggle;
-    public Item referralItem;
-    public View backgroundView;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
-    public RushListHeaderViewHolder(View itemView) {
-        super(itemView);
-        header_title = (TextView) itemView.findViewById(R.id.header_title);
-        buttonToggle = (ImageView) itemView.findViewById(R.id.btn_expand_toggle);
-        backgroundView = itemView.findViewById(R.id.list_header_background);
+public class RushListHeaderViewHolder extends RecyclerView.ViewHolder {
+
+    @Bind(R.id.header_title)
+    TextView header_title;
+
+    @Bind(R.id.btn_expand_toggle)
+    ImageView buttonToggle;
+
+    @Bind(R.id.list_header_background)
+    View backgroundView;
+
+    public Item referralItem;
+
+    public RushListHeaderViewHolder(View view) {
+        super(view);
+        ButterKnife.bind(this,view);
     }
 }

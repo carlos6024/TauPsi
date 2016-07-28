@@ -23,7 +23,7 @@ public class LiveInfoCardService extends BaseLiveService {
         final ServiceCalls.SearchCommunityInformationResponse response = new ServiceCalls.SearchCommunityInformationResponse();
         response.communityInformationList = new ArrayList<>();
 
-        Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/communityCard");
+        Firebase reference = new Firebase(request.SearchParam);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -58,11 +58,11 @@ public class LiveInfoCardService extends BaseLiveService {
     }
 
     @Subscribe
-    public void getBrotherHoodInformationCards(ServiceCalls.SearchAcademicsInformationRequest request){
-        final ServiceCalls.SearchAcademicsInformationResponse response = new ServiceCalls.SearchAcademicsInformationResponse();
+    public void getBrotherHoodInformationCards(ServiceCalls.SearchBrotherhoodInformationRequest request){
+        final ServiceCalls.SearchBrotherhoodInformationResponse response = new ServiceCalls.SearchBrotherhoodInformationResponse();
         response.brotherHoodInformationList = new ArrayList<>();
 
-        Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/brotherHoodCard");
+        Firebase reference = new Firebase(request.SearchParam);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -101,7 +101,7 @@ public class LiveInfoCardService extends BaseLiveService {
     public void getSocialCards(ServiceCalls.SearchSocialInformationRequest request){
         final ServiceCalls.SearchSocialInformationResponse response = new ServiceCalls.SearchSocialInformationResponse();
         response.socialVideos = new ArrayList<>();
-        Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/socialCard");
+        Firebase reference = new Firebase(request.SearchParam);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -5,12 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.EventPhoto;
 import com.asutaupsi.taupsi.entities.InformationCard;
 import com.asutaupsi.taupsi.fragments.EventPhotoFragment;
+import com.asutaupsi.taupsi.infrastructure.TauPsiApplication;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.squareup.otto.Subscribe;
 
@@ -21,7 +21,6 @@ public class EventPhotoPagerActivity extends BaseActivity {
     ArrayList<EventPhoto> mEventPhotos;
 
     private ViewPager mViewPager;
-    private final String LOG_TAG = EventPhotoPagerActivity.class.getSimpleName();
     public static final String EXTRA_VIDEO_INFO = "EXTRA_VIDEO_INFO";
 
 
@@ -32,21 +31,17 @@ public class EventPhotoPagerActivity extends BaseActivity {
         mEventPhotos = new ArrayList<>();
         InformationCard informationCard = getIntent().getParcelableExtra(EXTRA_VIDEO_INFO);
 
-        Log.i(LOG_TAG, "Event Photo Pager Activity called");
-        Log.i(LOG_TAG,Integer.toString(informationCard.getCardId()) + " Card id");
-
         int CardPosition = informationCard.getCardId();
         switch (CardPosition){
             case 1:
-                bus.post(new ServiceCalls.SearchBeALeaderPhotosRequest("Search Param"));
-                Log.i(LOG_TAG, "BE a leader photos requested");
+                bus.post(new ServiceCalls.SearchBeALeaderPhotosRequest(TauPsiApplication.COMMUNITY_PHOTOS_REFERENCE));
                 break;
             case 3:
-                bus.post(new ServiceCalls.SearchTravelingPhotosRequest("Search Param"));
+                bus.post(new ServiceCalls.SearchTravelingPhotosRequest(TauPsiApplication.TRAVELING_PHOTOS_REFERENCE));
                 break;
 
             case 5:
-                bus.post(new ServiceCalls.SearchSexyShowCaseRequest("Search Param"));
+                bus.post(new ServiceCalls.SearchSexyShowCaseRequest(TauPsiApplication.SEXYSHOWCASE_PHOTOS_REFRENCE));
                 break;
         }
 
@@ -73,7 +68,6 @@ public class EventPhotoPagerActivity extends BaseActivity {
         mEventPhotos.clear();
         mEventPhotos.addAll(response.BeALeaderPhotos);
         mViewPager.getAdapter().notifyDataSetChanged();
-        Log.i(LOG_TAG, Integer.toString(mEventPhotos.size()) + " service photos added from otto");
     }
 
 
@@ -82,7 +76,6 @@ public class EventPhotoPagerActivity extends BaseActivity {
         mEventPhotos.clear();
         mEventPhotos.addAll(response.TravelingEventPhotos);
         mViewPager.getAdapter().notifyDataSetChanged();
-        Log.i(LOG_TAG, Integer.toString(mEventPhotos.size()) + " traveling photos added from otto");
     }
 
 
@@ -91,6 +84,5 @@ public class EventPhotoPagerActivity extends BaseActivity {
         mEventPhotos.clear();
         mEventPhotos.addAll(response.SexyShowCasePhotos);
         mViewPager.getAdapter().notifyDataSetChanged();
-        Log.i(LOG_TAG,Integer.toString(mEventPhotos.size()) + " sexy show case photos added from otto");
     }
 }

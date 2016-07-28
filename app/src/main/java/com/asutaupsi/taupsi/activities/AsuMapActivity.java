@@ -1,7 +1,6 @@
 package com.asutaupsi.taupsi.activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -40,16 +39,16 @@ public class AsuMapActivity extends BaseActivity {
     @Bind(R.id.activity_asu_map_rushDate)
     TextView rushDate;
 
-    private String link;
+
 
     private final static String RUSH_EVENT_INFO = "RUSH_EVENT_INFO";
-    private final String LOG_TAG = AsuMapActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asu_map);
         ButterKnife.bind(this);
+        String link;
         RushEvent rushEvent = getIntent().getParcelableExtra(RUSH_EVENT_INFO);
         rushEventName.setText(rushEvent.getEventName());
         rushDescription.setText(rushEvent.getEventDescription());
@@ -92,7 +91,6 @@ public class AsuMapActivity extends BaseActivity {
 
         });
 
-        Log.i(LOG_TAG,link);
         asuWebView.loadUrl(googleDocs + link);
     }
 

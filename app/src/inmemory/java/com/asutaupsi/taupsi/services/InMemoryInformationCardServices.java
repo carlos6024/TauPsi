@@ -34,8 +34,8 @@ public class InMemoryInformationCardServices extends BaseInMemeoryService {
 
 
     @Subscribe
-    public void getBrotherHoodInformationCards(ServiceCalls.SearchAcademicsInformationRequest request){
-        ServiceCalls.SearchAcademicsInformationResponse response = new ServiceCalls.SearchAcademicsInformationResponse();
+    public void getBrotherHoodInformationCards(ServiceCalls.SearchBrotherhoodInformationRequest request){
+        ServiceCalls.SearchBrotherhoodInformationResponse response = new ServiceCalls.SearchBrotherhoodInformationResponse();
         response.brotherHoodInformationList = new ArrayList<>();
 
         response.brotherHoodInformationList.add( new InformationCard(

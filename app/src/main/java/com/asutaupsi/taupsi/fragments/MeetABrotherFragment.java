@@ -47,7 +47,7 @@ public class MeetABrotherFragment extends BaseFragment implements BrotherRecycle
     @Override
     public void onStart() {
         super.onStart();
-        bus.post(new ServiceCalls.SearchBrothersRequest(TauPsiApplication.BROTHER_FIREBASE_REFERENCE));
+        bus.post(new ServiceCalls.SearchBrothersRequest(TauPsiApplication.BROTHER_REFERENCE));
     }
 
     private void setUpAdapter(){

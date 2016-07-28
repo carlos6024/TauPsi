@@ -1,7 +1,6 @@
 package com.asutaupsi.taupsi.activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -45,7 +44,6 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult errorReason) {
         if (errorReason.isUserRecoverableError()) {
             errorReason.getErrorDialog(this, 1).show();
-        } else {
         }
     }
 }

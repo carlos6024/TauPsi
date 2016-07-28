@@ -12,6 +12,7 @@ import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.BaseActivity;
 import com.asutaupsi.taupsi.activities.EventPhotoPagerActivity;
 import com.asutaupsi.taupsi.activities.YoutubePlayerActivity;
+import com.asutaupsi.taupsi.infrastructure.TauPsiApplication;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.asutaupsi.taupsi.entities.InformationCard;
 import com.asutaupsi.taupsi.views.AboutUsViews.AboutUsFragmentAdapter;
@@ -47,9 +48,9 @@ public class AboutFragment extends BaseFragment implements AboutUsFragmentAdapte
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment_about_recycler_view);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        bus.post(new ServiceCalls.SearchCommunityInformationRequest(true));
-        bus.post(new ServiceCalls.SearchAcademicsInformationRequest(true));
-        bus.post(new ServiceCalls.SearchSocialInformationRequest(true));
+        bus.post(new ServiceCalls.SearchCommunityInformationRequest(TauPsiApplication.COMMUNITY_INFORMATION_CARD_REFERENCE));
+        bus.post(new ServiceCalls.SearchBrotherhoodInformationRequest(TauPsiApplication.BROTHERHOOD_INFORMATION_CARD_REFERENCE));
+        bus.post(new ServiceCalls.SearchSocialInformationRequest(TauPsiApplication.SOCIAL_INFORMATION_CARD_REFERENCE));
         return view;
     }
 
@@ -84,7 +85,7 @@ public class AboutFragment extends BaseFragment implements AboutUsFragmentAdapte
     }
 
     @Subscribe
-    public void getBrotherhoodCards(final ServiceCalls.SearchAcademicsInformationResponse response){
+    public void getBrotherhoodCards(final ServiceCalls.SearchBrotherhoodInformationResponse response){
         int oldSize = academicsCards.size();
 
         if(oldSize ==0){

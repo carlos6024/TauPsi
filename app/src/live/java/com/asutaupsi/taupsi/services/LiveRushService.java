@@ -23,7 +23,7 @@ public class LiveRushService extends BaseLiveService {
         final ServiceCalls.SearchRushInfoEventsResponse response = new ServiceCalls.SearchRushInfoEventsResponse();
 
         response.rushInfoEvents = new ArrayList<>();
-        Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/rushInformationEvents");
+        Firebase reference = new Firebase(request.searchType);
 
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -67,7 +67,7 @@ public class LiveRushService extends BaseLiveService {
         public void rushSocialEvents(ServiceCalls.SearchRushSocialEventsRequest request){
                 final ServiceCalls.SearchRushSocialEventsResponse response = new ServiceCalls.SearchRushSocialEventsResponse();
                 response.rushSocialEvents = new ArrayList<>();
-                Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/rushSocialEvents");
+                Firebase reference = new Firebase(request.searchType);
 
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -108,7 +108,7 @@ public class LiveRushService extends BaseLiveService {
         public void rushServiceEvents(ServiceCalls.SearchRushCommunityEventsRequest request){
                 final ServiceCalls.SearchRushCommunityResponse response = new ServiceCalls.SearchRushCommunityResponse();
                 response.rushCommunityEvents = new ArrayList<>();
-                Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/rushCommunityEvents");
+                Firebase reference = new Firebase(request.searchType);
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {

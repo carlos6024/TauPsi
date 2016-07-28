@@ -20,9 +20,6 @@ public class ServiceCalls {
             this.searchType = searchType;
         }
 
-        public String getSearchType() {
-            return searchType;
-        }
     }
 
 
@@ -71,14 +68,11 @@ public class ServiceCalls {
         public List<RushEvent> rushSocialEvents;
     }
 
-
-
-
     public static class SearchCommunityInformationRequest {
-        public boolean Search;
+        public String SearchParam;
 
-        public SearchCommunityInformationRequest(boolean search) {
-            Search = search;
+        public SearchCommunityInformationRequest(String searchParam) {
+            SearchParam = searchParam;
         }
     }
 
@@ -90,26 +84,25 @@ public class ServiceCalls {
 
 
 
-    public static class SearchAcademicsInformationRequest {
-        public boolean Search;
+    public static class SearchBrotherhoodInformationRequest {
+        public String SearchParam;
 
-        public SearchAcademicsInformationRequest(boolean search) {
-            Search = search;
+        public SearchBrotherhoodInformationRequest(String searchParam) {
+            SearchParam = searchParam;
         }
     }
 
-    public static class SearchAcademicsInformationResponse {
+    public static class SearchBrotherhoodInformationResponse {
         public List<InformationCard> brotherHoodInformationList;
     }
 
 
     public static class SearchSocialInformationRequest {
-        public boolean Search;
+        public String SearchParam;
 
-        public SearchSocialInformationRequest(boolean search) {
-            Search = search;
+        public SearchSocialInformationRequest(String searchParam) {
+            SearchParam = searchParam;
         }
-
     }
 
     public static class SearchSocialInformationResponse {

@@ -22,7 +22,7 @@ public class LiveBrotherService extends BaseLiveService {
         final ServiceCalls.SearchBrothersResponse response = new ServiceCalls.SearchBrothersResponse();
         response.Brothers = new ArrayList<>();
 
-        Firebase reference = new Firebase(request.getSearchType());
+        Firebase reference = new Firebase(request.searchType);
 
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {

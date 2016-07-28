@@ -1,6 +1,7 @@
 package com.asutaupsi.taupsi.views.BrotherViews;
 
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,10 +30,10 @@ public class BrotherViewHolder extends RecyclerView.ViewHolder {
     }
 
 
-    public void populate(Brother brother) {
+    public void populate(Context context,Brother brother) {
         itemView.setTag(brother);
 
-        Picasso.with(brotherImage.getContext()).load(brother.getBrotherPicture())
+        Picasso.with(context).load(brother.getBrotherPicture())
                 .fit()
                 .centerCrop()
                 .into(brotherImage, new Callback() {

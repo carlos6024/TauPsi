@@ -3,10 +3,8 @@ package com.asutaupsi.taupsi.views.RushViews;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -24,7 +22,7 @@ public class RushFooterHolder extends RecyclerView.ViewHolder {
 
 
     @Bind(R.id.footer_fragment_rush_facebookFollow)
-    ImageView fackBookImage;
+    ImageView faceBookImage;
 
     @Bind(R.id.footer_fragment_rush_InstagramFollow)
     ImageView instagramImage;
@@ -44,7 +42,7 @@ public class RushFooterHolder extends RecyclerView.ViewHolder {
         super(view);
         ButterKnife.bind(this, view);
 
-        fackBookImage.setOnClickListener(new View.OnClickListener() {
+        faceBookImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent;
@@ -115,7 +113,7 @@ public class RushFooterHolder extends RecyclerView.ViewHolder {
 
 
     public void populate(Context context){
-        Picasso.with(context).load("http://i50.photobucket.com/albums/f315/carlos6024/faceBookLogo_zps5ehpqnng.png").into(fackBookImage);
+        Picasso.with(context).load("http://i50.photobucket.com/albums/f315/carlos6024/faceBookLogo_zps5ehpqnng.png").into(faceBookImage);
         Picasso.with(context).load("http://i50.photobucket.com/albums/f315/carlos6024/insta_logo_zpshg6xmz7g.jpg").into(instagramImage);
         Picasso.with(context).load("https://dl.dropboxusercontent.com/s/jbtx0tbvi2t3v67/twitter%20logo.jpg?dl=0").into(twitterImage);
         Picasso.with(context).load("http://i50.photobucket.com/albums/f315/carlos6024/snapChat_logo_zpsjzwi8hpr.png").into(snapFollow);

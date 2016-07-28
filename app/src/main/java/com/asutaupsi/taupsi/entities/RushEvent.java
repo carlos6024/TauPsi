@@ -74,9 +74,6 @@ public class RushEvent implements Parcelable {
         return CREATOR;
     }
 
-    public int getEventId() {
-        return eventId;
-    }
 
     public String getEventName() {
         return eventName;

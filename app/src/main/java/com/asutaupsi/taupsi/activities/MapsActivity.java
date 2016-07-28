@@ -1,7 +1,6 @@
 package com.asutaupsi.taupsi.activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.asutaupsi.taupsi.R;
@@ -26,7 +25,6 @@ public class MapsActivity extends BaseActivity {
     private GoogleMap mMap;
     private RushEvent rushEvent;
     private final static String RUSH_EVENT_INFO = "RUSH_EVENT_INFO";
-    private final static String LOG_TAG = MapsActivity.class.getSimpleName();
 
     @Bind(R.id.activity_map_rushName)
     TextView rushName;
@@ -99,7 +97,6 @@ public class MapsActivity extends BaseActivity {
 
 
     private void updateUI() {
-        Log.i(LOG_TAG, "Connected ");
 
         LatLng rushEventPoint = new LatLng(
                     rushEvent.getEventLatitude(), rushEvent.getEventLongitude()

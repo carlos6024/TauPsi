@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.activities.AsuMapActivity;
 import com.asutaupsi.taupsi.activities.BaseActivity;
 import com.asutaupsi.taupsi.activities.MapsActivity;
+import com.asutaupsi.taupsi.infrastructure.TauPsiApplication;
 import com.asutaupsi.taupsi.services.ServiceCalls;
 import com.asutaupsi.taupsi.entities.RushEvent;
 import com.asutaupsi.taupsi.views.RushViews.Item;
@@ -33,8 +33,6 @@ public class RushFragment extends BaseFragment implements RushEventAdapter.RushE
     private Item information;
     private Item community;
     private Item social;
-
-
 
     private final static String RUSH_EVENT_INFO = "RUSH_EVENT_INFO";
 
@@ -67,9 +65,9 @@ public class RushFragment extends BaseFragment implements RushEventAdapter.RushE
         social = new Item(RushEventAdapter.HEADER,"Socials");
         social.invisibleChildren = new ArrayList<>();
 
-        bus.post(new ServiceCalls.SearchRushInfoEventsRequest("Request"));
-        bus.post(new ServiceCalls.SearchRushCommunityEventsRequest("Request"));
-        bus.post(new ServiceCalls.SearchRushSocialEventsRequest("Request"));
+        bus.post(new ServiceCalls.SearchRushInfoEventsRequest(TauPsiApplication.RUSH_INFORMATIONAL_EVENTS_REFERENCE));
+        bus.post(new ServiceCalls.SearchRushCommunityEventsRequest(TauPsiApplication.RUSH_SERVICE_EVENTS_REFERENCE));
+        bus.post(new ServiceCalls.SearchRushSocialEventsRequest(TauPsiApplication.RUSH_SOCIAL_EVENTS_REFERENCE));
 
         setUpAdapter();
 
@@ -93,8 +91,6 @@ public class RushFragment extends BaseFragment implements RushEventAdapter.RushE
 
         rushInformationalEvents.clear();
         rushInformationalEvents.addAll(response.rushInfoEvents);
-        Log.i(RushFragment.class.getSimpleName(), Integer.toString(rushInformationalEvents.size()) + "Events obatined from otto");
-
         for(RushEvent rushEvent: rushInformationalEvents){
             information.invisibleChildren.add(new Item(RushEventAdapter.CHILD,rushEvent));
         }

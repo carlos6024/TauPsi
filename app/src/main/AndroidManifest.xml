@@ -35,14 +35,15 @@
 
         <activity android:name=".activities.MainActivity"
             android:screenOrientation="portrait"/>
+
         <activity android:name=".activities.YoutubePlayerActivity"
-            android:theme="@style/AlertDialogCustom"/>
+            android:theme="@style/YoutubeDialogCustom"/>
 
         <activity android:name=".activities.EventPhotoPagerActivity"
-            android:theme="@style/AlertDialogCustomAppTheme"/>
+            android:theme="@style/CustomDialogTheme"/>
 
         <activity android:name=".activities.BrotherPagerActivity"
-            android:theme="@style/AnotherDialogCustom"
+            android:theme="@style/CustomDialogTheme"
             />
 
         <activity android:name=".activities.AsuMapActivity"
@@ -54,9 +55,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
-
-        <activity android:name=".activities.PracticeActiviy"
-            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

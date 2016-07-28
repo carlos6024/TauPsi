@@ -14,7 +14,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity  {
 
-    private final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Bind(R.id.activity_main_viewPager)
     ViewPager viewPager;

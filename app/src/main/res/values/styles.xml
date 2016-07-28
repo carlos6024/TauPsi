@@ -2,10 +2,12 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/silver_primary</item>
+        <item name="colorPrimary">@color/blue_primary</item>
         <item name="colorPrimaryDark">@color/silver_secondary</item>
         <item name="colorAccent">@color/silver_accent</item>
     </style>
+
+
 
 
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -13,17 +15,9 @@
     </style>
 
 
-    <style name="MyCardViewStyle" parent="Theme.AppCompat.Light">
-        <item name="cardCornerRadius">2dp</item>
-        <item name="cardElevation">2dp</item>
-        <item name="contentPaddingBottom">24dp</item>
-        <item name="contentPaddingTop">24dp</item>
-        <item name="contentPaddingLeft">16dp</item>
-        <item name="contentPaddingRight">16dp</item>
-    </style>
 
 
-    <style name="AlertDialogCustom" parent="@android:style/Theme.Dialog">
+    <style name="YoutubeDialogCustom" parent="@android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
@@ -32,21 +26,13 @@
     </style>
 
 
-    <style name="AnotherDialogCustom" parent="Base.Theme.AppCompat.Dialog">
+
+
+    <style name="CustomDialogTheme" parent="Base.Theme.AppCompat.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="windowNoTitle">true</item>
-
-
-    </style>
-
-
-
-
-    <style name="AlertDialogCustomAppTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowCloseOnTouchOutside">true</item>
-        <item name="windowNoTitle">true</item>
+        <item name="android:textColor">#fff</item>
     </style>
 
 </resources>

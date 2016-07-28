@@ -13,7 +13,6 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 
 public class LivePhotoService extends BaseLiveService {
-    private final String LOG_TAG = LivePhotoService.class.getSimpleName();
     public LivePhotoService(TauPsiApplication application) {
         super(application);
     }
@@ -22,7 +21,7 @@ public class LivePhotoService extends BaseLiveService {
     public void getBeALeaderPhotos(ServiceCalls.SearchBeALeaderPhotosRequest request){
         final ServiceCalls.SearchBeALeaderPhotosResponse response = new ServiceCalls.SearchBeALeaderPhotosResponse();
         response.BeALeaderPhotos = new ArrayList<>();
-        Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/communityServicePics");
+        Firebase reference = new Firebase(request.SearchParameter);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -58,7 +57,7 @@ public class LivePhotoService extends BaseLiveService {
         final ServiceCalls.SearchTravelingPhotosResponse response = new ServiceCalls.SearchTravelingPhotosResponse();
         response.TravelingEventPhotos = new ArrayList<>();
 
-        Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/travelingPics");
+        Firebase reference = new Firebase(request.SearchParameter);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -90,7 +89,7 @@ public class LivePhotoService extends BaseLiveService {
     public void getSexyShowCasePhotos(ServiceCalls.SearchSexyShowCaseRequest request){
         final ServiceCalls.SearchSexyShowcaseResponse response = new ServiceCalls.SearchSexyShowcaseResponse();
         response.SexyShowCasePhotos = new ArrayList<>();
-        Firebase reference = new Firebase("https://asutaupsi-9d1d9.firebaseio.com/data/sexyShowcasePics");
+        Firebase reference = new Firebase(request.SearchParameter);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

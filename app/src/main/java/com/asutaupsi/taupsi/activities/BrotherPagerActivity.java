@@ -7,9 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.Brother;
@@ -24,7 +21,6 @@ public class BrotherPagerActivity extends BaseActivity {
     private ArrayList<Brother> brothers;
     private ViewPager viewPager;
     private  static final String BROTHER_EXTRA_INFO = "BROTHER_EXTRA_INFO";
-    private  final String LOG_TAG = BrotherPagerActivity.class.getSimpleName();
 
 
     @Override
@@ -33,7 +29,7 @@ public class BrotherPagerActivity extends BaseActivity {
         setContentView(R.layout.activity_brother_pager);
 
         brothers = new ArrayList<>();
-        bus.post(new ServiceCalls.SearchBrothersRequest(TauPsiApplication.BROTHER_FIREBASE_REFERENCE));
+        bus.post(new ServiceCalls.SearchBrothersRequest(TauPsiApplication.BROTHER_REFERENCE));
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager = (ViewPager) findViewById(R.id.activity_brother_viewPager);
@@ -71,7 +67,6 @@ public class BrotherPagerActivity extends BaseActivity {
                 break;
             }
         }
-        Log.i(LOG_TAG, Integer.toString(brothers.size()));
     }
 
 

@@ -11,7 +11,7 @@
     <!-- view border color and width -->
     <stroke
         android:width="2dp"
-        android:color="@color/silver_primary" >
+        android:color="@color/blue_primary" >
     </stroke>
 
     <!-- If you want to add some padding -->
