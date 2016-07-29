@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.Brother;
@@ -44,8 +46,12 @@ public class BrotherPagerActivity extends BaseActivity {
             public int getCount() {
                 return brothers.size();
             }
+
+
         });
     }
+
+
 
 
 
@@ -57,6 +63,7 @@ public class BrotherPagerActivity extends BaseActivity {
             brothers.addAll(response.Brothers);
             viewPager.getAdapter().notifyDataSetChanged();
         }
+
 
         Brother brother = getIntent().getParcelableExtra(BROTHER_EXTRA_INFO);
         int brotherId = brother.getBrotherId();
@@ -75,4 +82,5 @@ public class BrotherPagerActivity extends BaseActivity {
         intent.putExtra(BROTHER_EXTRA_INFO,brother);
         return intent;
     }
+
 }

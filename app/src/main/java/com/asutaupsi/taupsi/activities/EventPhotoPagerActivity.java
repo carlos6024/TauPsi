@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-
 import com.asutaupsi.taupsi.R;
 import com.asutaupsi.taupsi.entities.EventPhoto;
 import com.asutaupsi.taupsi.entities.InformationCard;
@@ -58,10 +57,16 @@ public class EventPhotoPagerActivity extends BaseActivity {
             public int getCount() {
                 return mEventPhotos.size();
             }
+
+
         });
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
     @Subscribe
     public void getServicePhotos(ServiceCalls.SearchBeALeaderPhotosResponse response) {

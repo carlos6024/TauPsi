@@ -46,6 +46,16 @@ public class BrotherHoodViewHolder extends RecyclerView.ViewHolder {
         videoTitle.setText(informationVideo.getCardTitle());
         videoAbout.setText(informationVideo.getCardDescription());
 
+
+
+        if(!informationVideo.getIsVideo()){
+            typeImageView.setImageResource(R.mipmap.camera_icon);
+        } else {
+            typeImageView.setImageResource(R.mipmap.video_camera);
+        }
+
+
+
         Picasso.with(context).load(informationVideo.getCardImage())
                 .fit()
                 .centerCrop()
@@ -61,10 +71,5 @@ public class BrotherHoodViewHolder extends RecyclerView.ViewHolder {
                     }
                 });
 
-        if(!informationVideo.getIsVideo()){
-            typeImageView.setImageResource(R.mipmap.camera_icon);
-        } else {
-            typeImageView.setImageResource(R.mipmap.video_camera);
-        }
     }
 }
